@@ -5,14 +5,14 @@ alu-bit - copied
 alu64-arith - copied
 alu64-bit - copied
 arsh32-imm - copied
-arsh32-imm-high - copied
-arsh32-imm-neg - copied
+arsh32-imm-high - moved to negative_safety (sbpf rejects shift >= bit width)
+arsh32-imm-neg - moved to negative_safety (sbpf rejects shift >= bit width)
 arsh32-reg - copied
 arsh32-reg-high - copied
 arsh32-reg-neg - copied
 arsh64-imm - copied
-arsh64-imm-high - copied
-arsh64-imm-neg - copied
+arsh64-imm-high - moved to negative_safety (sbpf rejects shift >= bit width)
+arsh64-imm-neg - moved to negative_safety (sbpf rejects shift >= bit width)
 arsh64-reg - copied
 arsh64-reg-high - copied
 arsh64-reg-neg - copied
@@ -122,14 +122,14 @@ lock_xchg32 - lock not supported by sbpf
 lock_xor - lock not supported by sbpf
 lock_xor32 - lock not supported by sbpf
 lsh32-imm - copied
-lsh32-imm-high - copied
-lsh32-imm-neg - copied
+lsh32-imm-high - moved to negative_safety (sbpf rejects shift >= bit width)
+lsh32-imm-neg - moved to negative_safety (sbpf rejects shift >= bit width)
 lsh32-reg - copied
 lsh32-reg-high - copied
 lsh32-reg-neg - copied
 lsh64-imm - copied
-lsh64-imm-high - copied
-lsh64-imm-neg - copied
+lsh64-imm-high - moved to negative_safety (sbpf rejects shift >= bit width)
+lsh64-imm-neg - moved to negative_safety (sbpf rejects shift >= bit width)
 lsh64-reg - copied
 lsh64-reg-high - copied
 lsh64-reg-neg - copied
@@ -252,14 +252,14 @@ rfc9669_swap64 - swap not supported by sbpf
 rfc9669_xor32 - copied
 rfc9669_xor64 - copied
 rsh32-imm - copied
-rsh32-imm-high - copied
-rsh32-imm-neg - copied
+rsh32-imm-high - moved to negative_safety (sbpf rejects shift >= bit width)
+rsh32-imm-neg - moved to negative_safety (sbpf rejects shift >= bit width)
 rsh32-reg - copied
 rsh32-reg-high - copied
 rsh32-reg-neg - copied
 rsh64-imm - copied
-rsh64-imm-high - copied
-rsh64-imm-neg - copied
+rsh64-imm-high - moved to negative_safety (sbpf rejects shift >= bit width)
+rsh64-imm-neg - moved to negative_safety (sbpf rejects shift >= bit width)
 rsh64-reg - copied
 rsh64-reg-high - copied
 rsh64-reg-neg - copied

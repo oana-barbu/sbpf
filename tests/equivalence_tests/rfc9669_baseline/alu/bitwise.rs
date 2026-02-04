@@ -235,34 +235,6 @@ fn test_rfc9669_xor64() {
 }
 
 #[test]
-fn test_arsh32_imm_high() {
-    test_interpreter_and_jit_asm!(
-        "
-        mov32 r0, 0xf8
-        lsh32 r0, 28
-        arsh32 r0, 48
-        exit",
-        [],
-        TestContextObject::new(4),
-        ProgramResult::Ok(0xffff8000),
-    );
-}
-
-#[test]
-fn test_arsh32_imm_neg() {
-    test_interpreter_and_jit_asm!(
-        "
-        mov32 r0, 0xf8
-        lsh32 r0, 28
-        arsh32 r0, -16
-        exit",
-        [],
-        TestContextObject::new(4),
-        ProgramResult::Ok(0xffff8000),
-    );
-}
-
-#[test]
 fn test_arsh32_imm() {
     test_interpreter_and_jit_asm!(
         "
@@ -318,34 +290,6 @@ fn test_arsh32_reg() {
         [],
         TestContextObject::new(5),
         ProgramResult::Ok(0xffff8000),
-    );
-}
-
-#[test]
-fn test_arsh64_imm_high() {
-    test_interpreter_and_jit_asm!(
-        "
-        mov32 r0, 1
-        lsh r0, 63
-        arsh r0, 124
-        exit",
-        [],
-        TestContextObject::new(4),
-        ProgramResult::Ok(0xfffffffffffffff8),
-    );
-}
-
-#[test]
-fn test_arsh64_imm_neg() {
-    test_interpreter_and_jit_asm!(
-        "
-        mov32 r0, 1
-        lsh r0, 63
-        arsh r0, -4
-        exit",
-        [],
-        TestContextObject::new(4),
-        ProgramResult::Ok(0xfffffffffffffff8),
     );
 }
 
@@ -453,32 +397,6 @@ fn test_rfc9669_arsh64() {
 }
 
 #[test]
-fn test_lsh32_imm_high() {
-    test_interpreter_and_jit_asm!(
-        "
-        mov r0, 0x11
-        lsh32 r0, 60
-        exit",
-        [],
-        TestContextObject::new(3),
-        ProgramResult::Ok(0x10000000),
-    );
-}
-
-#[test]
-fn test_lsh32_imm_neg() {
-    test_interpreter_and_jit_asm!(
-        "
-        mov r0, 0x11
-        lsh32 r0, -4
-        exit",
-        [],
-        TestContextObject::new(3),
-        ProgramResult::Ok(0x10000000),
-    );
-}
-
-#[test]
 fn test_lsh32_imm() {
     test_interpreter_and_jit_asm!(
         "
@@ -530,32 +448,6 @@ fn test_lsh32_reg() {
         [],
         TestContextObject::new(4),
         ProgramResult::Ok(0x10000000),
-    );
-}
-
-#[test]
-fn test_lsh64_imm_high() {
-    test_interpreter_and_jit_asm!(
-        "
-        mov r0, 0x1
-        lsh r0, 68
-        exit",
-        [],
-        TestContextObject::new(3),
-        ProgramResult::Ok(0x10),
-    );
-}
-
-#[test]
-fn test_lsh64_imm_neg() {
-    test_interpreter_and_jit_asm!(
-        "
-        mov r0, 0x1
-        lsh r0, -60
-        exit",
-        [],
-        TestContextObject::new(3),
-        ProgramResult::Ok(0x10),
     );
 }
 
@@ -660,32 +552,6 @@ fn test_rfc9669_lsh64() {
 }
 
 #[test]
-fn test_rsh32_imm_high() {
-    test_interpreter_and_jit_asm!(
-        "
-        mov32 r0, 0x10000000
-        rsh32 r0, 60
-        exit",
-        [],
-        TestContextObject::new(3),
-        ProgramResult::Ok(0x1),
-    );
-}
-
-#[test]
-fn test_rsh32_imm_neg() {
-    test_interpreter_and_jit_asm!(
-        "
-        mov32 r0, 0x10000000
-        rsh32 r0, -4
-        exit",
-        [],
-        TestContextObject::new(3),
-        ProgramResult::Ok(0x1),
-    );
-}
-
-#[test]
 fn test_rsh32_imm() {
     test_interpreter_and_jit_asm!(
         "
@@ -736,32 +602,6 @@ fn test_rsh32_reg() {
         exit",
         [],
         TestContextObject::new(4),
-        ProgramResult::Ok(0x1),
-    );
-}
-
-#[test]
-fn test_rsh64_imm_high() {
-    test_interpreter_and_jit_asm!(
-        "
-        mov r0, 0x10
-        rsh r0, 68
-        exit",
-        [],
-        TestContextObject::new(3),
-        ProgramResult::Ok(0x1),
-    );
-}
-
-#[test]
-fn test_rsh64_imm_neg() {
-    test_interpreter_and_jit_asm!(
-        "
-        mov r0, 0x10
-        rsh r0, -60
-        exit",
-        [],
-        TestContextObject::new(3),
         ProgramResult::Ok(0x1),
     );
 }
