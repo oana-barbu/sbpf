@@ -32,24 +32,25 @@ fn test_alu_bit() {
         mov32 r6, 6
         mov32 r7, 7
         mov32 r8, 8
-        jne r0, 0, exit
+        jne r0, 0, end
         or32 r0, r5
         or32 r0, 0xa0
         or32 r0, r0
-        jne r0, 0xa5, exit
+        jne r0, 0xa5, end
         and32 r0, 0xa3
         mov32 r9, 0x91
         and32 r0, r9
         and32 r0, r0
-        jne r0, 0x81, exit
+        jne r0, 0x81, end
         lsh32 r0, 22
         lsh32 r0, r8
-        jne r0, 0x40000000, exit
+        jne r0, 0x40000000, end
         rsh32 r0, 19
         rsh32 r0, r7
-        jne r0, 0x10, exit
+        jne r0, 0x10, end
         xor32 r0, 0x03
         xor32 r0, r2
+        end:
         exit",
         [],
         TestContextObject::new(28),
@@ -70,25 +71,26 @@ fn test_alu64_bit() {
         mov r6, 6
         mov r7, 7
         mov r8, 8
-        jne r0, 0, exit
+        jne r0, 0, end
         or r0, r5
         or r0, 0xa0
         or r0, r0
-        jne r0, 0xa5, exit
+        jne r0, 0xa5, end
         and r0, 0xa3
         mov r9, 0x91
         and r0, r9
         and r0, r0
-        jne r0, 0x81, exit
+        jne r0, 0x81, end
         lsh r0, 32
         lsh r0, 22
         lsh r0, r8
         rsh r0, 32
         rsh r0, 19
         rsh r0, r7
-        jne r0, 0x10, exit
+        jne r0, 0x10, end
         xor r0, 0x03
         xor r0, r2
+        end:
         exit",
         [],
         TestContextObject::new(29),

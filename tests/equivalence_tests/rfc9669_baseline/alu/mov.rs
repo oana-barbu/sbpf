@@ -25,11 +25,12 @@ fn test_mov() {
         "
         mov32 r1, 2
         mov32 r0, r1
-        jne r0, 2, exit
+        jne r0, 2, end
         lddw r2, 0xFFFFFF00000002
         mov32 r0, r2
-        jne r0, 2, exit
+        jne r0, 2, end
         mov32 r0, 1
+        end:
         exit",
         [],
         TestContextObject::new(8),

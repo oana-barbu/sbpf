@@ -474,9 +474,10 @@ fn test_mod() {
         "
         mov32 r0, 5748
         mod32 r0, 92
-        jne r0, 44, exit
+        jne r0, 44, end
         mov32 r1, 13
         mod32 r0, r1
+        end:
         exit",
         [],
         TestContextObject::new(6),

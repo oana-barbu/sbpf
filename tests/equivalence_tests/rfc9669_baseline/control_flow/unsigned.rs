@@ -53,11 +53,12 @@ fn test_jeq_imm() {
         "
         mov32 r0, 0
         mov32 r1, 0xa
-        jeq r1, 0xb, exit
+        jeq r1, 0xb, end
         mov32 r0, 1
         mov32 r1, 0xb
-        jeq r1, 0xb, exit
+        jeq r1, 0xb, end
         mov32 r0, 2
+        end:
         exit",
         [],
         TestContextObject::new(8),
@@ -72,13 +73,14 @@ fn test_jeq_reg() {
         mov32 r0, 0
         mov32 r1, 0xa
         mov32 r2, 0xb
-        jeq r1, r2, exit
+        jeq r1, r2, end
         jeq r1, r1, +1
         exit
         mov32 r0, 1
         mov32 r1, 0xb
-        jeq r1, r2, exit
+        jeq r1, r2, end
         mov32 r0, 2
+        end:
         exit",
         [],
         TestContextObject::new(11),
@@ -94,12 +96,13 @@ fn test_jeq32_imm() {
         lsh r9, 32
         mov32 r0, 0x0
         mov32 r1, 0xa
-        jeq32 r1, 0xb, exit
+        jeq32 r1, 0xb, end
         mov32 r0, 1
         mov r1, 0xb
         or r1, r9
-        jeq32 r1, 0xb, exit
+        jeq32 r1, 0xb, end
         mov32 r0, 2
+        end:
         exit",
         [],
         TestContextObject::new(11),
@@ -116,14 +119,15 @@ fn test_jeq32_reg() {
         mov32 r0, 0
         mov32 r1, 0xa
         mov32 r2, 0xb
-        jeq32 r1, r2, exit
+        jeq32 r1, r2, end
         jeq32 r1, r1, +1
         exit
         mov32 r0, 1
         mov32 r1, 0xb
         or r1, r9
-        jeq32 r1, r2, exit
+        jeq32 r1, r2, end
         mov32 r0, 2
+        end:
         exit",
         [],
         TestContextObject::new(14),
@@ -171,12 +175,13 @@ fn test_jne_reg() {
         mov32 r0, 0
         mov32 r1, 0xb
         mov32 r2, 0xb
-        jne r1, r2, exit
-        jne r1, r1, exit
+        jne r1, r2, end
+        jne r1, r1, end
         mov32 r0, 1
         mov32 r1, 0xa
         jne r1, r2, +1
         mov32 r0, 2
+        end:
         exit",
         [],
         TestContextObject::new(10),
@@ -269,11 +274,12 @@ fn test_jge_imm() {
         "
         mov32 r0, 0
         mov32 r1, 0xa
-        jge r1, 0xb, exit
+        jge r1, 0xb, end
         mov32 r0, 1
         mov32 r1, 0xc
-        jge r1, 0xb, exit
+        jge r1, 0xb, end
         mov32 r0, 2
+        end:
         exit",
         [],
         TestContextObject::new(8),
@@ -288,13 +294,14 @@ fn test_jge_reg() {
         mov32 r0, 0
         mov32 r1, 0xa
         mov32 r2, 0x0b
-        jge r1, r2, exit
+        jge r1, r2, end
         jge r1, r1, +1
         exit
         mov32 r0, 1
         mov32 r1, 0xc
-        jge r1, r2, exit
+        jge r1, r2, end
         mov32 r0, 2
+        end:
         exit",
         [],
         TestContextObject::new(11),
@@ -310,12 +317,13 @@ fn test_jge32_imm() {
         lsh r9, 32
         mov32 r0, 0
         mov32 r1, 0xa
-        jge32 r1, 0xb, exit
+        jge32 r1, 0xb, end
         mov32 r0, 1
         mov32 r1, 0xc
         or r1, r9
-        jge32 r1, 0xb, exit
+        jge32 r1, 0xb, end
         mov32 r0, 2
+        end:
         exit",
         [],
         TestContextObject::new(11),
@@ -332,14 +340,15 @@ fn test_jge32_reg() {
         mov32 r0, 0
         mov32 r1, 0xa
         mov32 r2, 0xb
-        jge32 r1, r2, exit
+        jge32 r1, r2, end
         jge32 r1, r1, +1
         exit
         mov32 r0, 1
         mov32 r1, 0xc
         or r1, r9
-        jge32 r1, r2, exit
+        jge32 r1, r2, end
         mov32 r0, 2
+        end:
         exit",
         [],
         TestContextObject::new(14),
@@ -386,12 +395,13 @@ fn test_jgt_imm() {
         "
         mov32 r0, 0
         mov32 r1, 5
-        jgt r1, 6, exit
-        jgt r1, 5, exit
+        jgt r1, 6, end
+        jgt r1, 5, end
         jgt r1, 4, L1
         exit
         L1:
         mov32 r0, 1
+        end:
         exit",
         [],
         TestContextObject::new(8),
@@ -407,12 +417,13 @@ fn test_jgt_reg() {
         mov r1, 5
         mov r2, 6
         mov r3, 4
-        jgt r1, r2, exit
-        jgt r1, r1, exit
+        jgt r1, r2, end
+        jgt r1, r1, end
         jgt r1, r3, taken
         exit
         taken:
         mov r0, 1
+        end:
         exit",
         [],
         TestContextObject::new(10),
@@ -429,12 +440,13 @@ fn test_jgt32_imm() {
         mov32 r0, 0
         mov32 r1, 5
         or r1, r9
-        jgt32 r1, 6, exit
-        jgt32 r1, 5, exit
+        jgt32 r1, 6, end
+        jgt32 r1, 5, end
         jgt32 r1, 4, taken
         exit
         taken:
         mov32 r0, 1
+        end:
         exit",
         [],
         TestContextObject::new(11),
@@ -454,12 +466,13 @@ fn test_jgt32_reg() {
         or r1, r9
         mov r2, 6
         mov r3, 4
-        jgt32 r1, r2, exit
-        jgt32 r1, r1, exit
+        jgt32 r1, r2, end
+        jgt32 r1, r1, end
         jgt32 r1, r3, taken
         exit
         taken:
         mov r0, 1
+        end:
         exit",
         [],
         TestContextObject::new(14),
@@ -506,7 +519,7 @@ fn test_jle_imm() {
         "
         mov32 r0, 0
         mov32 r1, 5
-        jle r1, 4, exit
+        jle r1, 4, end
         jle r1, 6, +1
         exit
         taken:
@@ -514,6 +527,7 @@ fn test_jle_imm() {
         exit
         taken2:
         mov32 r0, 1
+        end:
         exit",
         [],
         TestContextObject::new(9),
@@ -529,12 +543,13 @@ fn test_jle_reg() {
         mov r1, 5
         mov r2, 4
         mov r3, 6
-        jle r1, r2, exit
+        jle r1, r2, end
         jle r1, r1, +1
         exit
         jle r1, r3, +1
         exit
         mov r0, 1
+        end:
         exit",
         [],
         TestContextObject::new(11),
@@ -551,12 +566,13 @@ fn test_jle32_imm() {
         mov32 r0, 0
         mov32 r1, 5
         or r1, r9
-        jle32 r1, 4, exit
+        jle32 r1, 4, end
         jle32 r1, 6, +1
         exit
         jle32 r1, 5, +1
         exit
         mov32 r0, 1
+        end:
         exit",
         [],
         TestContextObject::new(12),
@@ -575,12 +591,13 @@ fn test_jle32_reg() {
         mov r2, 4
         mov r3, 6
         or r1, r9
-        jle32 r1, r2, exit
+        jle32 r1, r2, end
         jle32 r1, r1, +1
         exit
         jle32 r1, r3, +1
         exit
         mov r0, 1
+        end:
         exit",
         [],
         TestContextObject::new(14),
@@ -627,11 +644,12 @@ fn test_jlt_imm() {
         "
         mov32 r0, 0
         mov32 r1, 5
-        jlt r1, 4, exit
-        jlt r1, 5, exit
+        jlt r1, 4, end
+        jlt r1, 5, end
         jlt r1, 6, +1
         exit
         mov32 r0, 1
+        end:
         exit",
         [],
         TestContextObject::new(8),
@@ -647,11 +665,12 @@ fn test_jlt_reg() {
         mov r1, 5
         mov r2, 4
         mov r3, 6
-        jlt r1, r2, exit
-        jlt r1, r1, exit
+        jlt r1, r2, end
+        jlt r1, r1, end
         jlt r1, r3, +1
         exit
         mov r0, 1
+        end:
         exit",
         [],
         TestContextObject::new(10),
@@ -668,11 +687,12 @@ fn test_jlt32_imm() {
         mov32 r0, 0
         mov32 r1, 5
         or r1, r9
-        jlt32 r1, 4, exit
-        jlt32 r1, 5, exit
+        jlt32 r1, 4, end
+        jlt32 r1, 5, end
         jlt32 r1, 6, +1
         exit
         mov32 r0, 1
+        end:
         exit",
         [],
         TestContextObject::new(11),
@@ -691,11 +711,12 @@ fn test_jlt32_reg() {
         mov r2, 4
         mov r3, 6
         or r1, r9
-        jlt32 r1, r2, exit
-        jlt32 r1, r1, exit
+        jlt32 r1, r2, end
+        jlt32 r1, r1, end
         jlt32 r1, r3, +1
         exit
         mov r0, 1
+        end:
         exit",
         [],
         TestContextObject::new(13),
@@ -742,11 +763,12 @@ fn test_jset_imm() {
         "
         mov32 r0, 0
         mov32 r1, 0x7
-        jset r1, 0x8, exit
+        jset r1, 0x8, end
         mov32 r0, 1
         mov32 r1, 0x9
         jset r1, 0x8, +1
         mov32 r0, 2
+        end:
         exit",
         [],
         TestContextObject::new(8),
@@ -761,13 +783,14 @@ fn test_jset_reg() {
         mov32 r0, 0
         mov32 r1, 0x7
         mov32 r2, 0x8
-        jset r1, r2, exit
+        jset r1, r2, end
         jset r1, r1, +1
         exit
         mov32 r0, 1
         mov32 r1, 0x9
         jset r1, r2, +1
         mov32 r0, 2
+        end:
         exit",
         [],
         TestContextObject::new(11),
@@ -784,11 +807,12 @@ fn test_jset32_imm() {
         mov32 r0, 0
         mov32 r1, 0x7
         or r1, r9
-        jset32 r1, 0x8, exit
+        jset32 r1, 0x8, end
         mov32 r0, 1
         mov32 r1, 0x9
         jset32 r1, 0x8, +1
         mov32 r0, 2
+        end:
         exit",
         [],
         TestContextObject::new(11),
@@ -806,13 +830,14 @@ fn test_jset32_reg() {
         mov32 r1, 0x7
         or r1, r9
         mov32 r2, 0x8
-        jset32 r1, r2, exit
+        jset32 r1, r2, end
         jset32 r1, r1, +1
         exit
         mov32 r0, 1
         mov32 r1, 0x9
         jset32 r1, r2, +1
         mov32 r0, 2
+        end:
         exit",
         [],
         TestContextObject::new(14),

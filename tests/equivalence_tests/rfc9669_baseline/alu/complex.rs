@@ -34,19 +34,20 @@ fn test_alu_arith() {
         mov32 r7, 7
         mov32 r8, 8
         mov32 r9, 9
-        jne r0, 0, exit
+        jne r0, 0, end
         add32 r0, 23
         add32 r0, r7
-        jne r0, 30, exit
+        jne r0, 30, end
         sub32 r0, 13
         sub32 r0, r1
-        jne r0, 16, exit
+        jne r0, 16, end
         mul32 r0, 7
         mul32 r0, r3
-        jne r0, 336, exit
+        jne r0, 336, end
         div32 r0, 2
         div32 r0, r4
-        jne r0, 42, exit
+        jne r0, 42, end
+        end:
         exit",
         [],
         TestContextObject::new(25),
@@ -69,18 +70,19 @@ fn test_alu64_arith() {
         mov r7, 7
         mov r8, 8
         mov r9, 9
-        jne r0, 0, exit
+        jne r0, 0, end
         add r0, 23
         add r0, r7
-        jne r0, 30, exit
+        jne r0, 30, end
         sub r0, 13
         sub r0, r1
-        jne r0, 16, exit
+        jne r0, 16, end
         mul r0, 7
         mul r0, r3
-        jne r0, 336, exit
+        jne r0, 336, end
         div r0, 2
         div r0, r4
+        end:
         exit",
         [],
         TestContextObject::new(24),
@@ -97,11 +99,11 @@ fn test_prime() {
         mov r2, 0x2
         jgt r1, 0x2, L3
         L1:
-        ja exit
+        ja end
         L2:
         add r2, 0x1
         mov r0, 0x1
-        jge r2, r1, exit
+        jge r2, r1, end
         L3:
         mov r3, r1
         div r3, r2
@@ -110,6 +112,7 @@ fn test_prime() {
         sub r4, r3
         mov r0, 0x0
         jne r4, 0x0, L2
+        end:
         exit",
         [],
         TestContextObject::new(16),
