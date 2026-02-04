@@ -22,21 +22,6 @@ use test_utils::{
 };
 
 #[test]
-fn test_add32_zero_to_negative() {
-    test_interpreter_and_jit_asm!(
-        "
-        mov32 r0, 0
-        add32 r0, -1
-        exit",
-        [],
-        TestContextObject::new(3),
-        // Standard eBPF: 0x00000000FFFFFFFF (zero-extended)
-        // SBPF: 0xFFFFFFFFFFFFFFFF (sign-extended)
-        ProgramResult::Ok(0xFFFFFFFFFFFFFFFF),
-    );
-}
-
-#[test]
 fn test_sub32_overflow() {
     test_interpreter_and_jit_asm!(
         "

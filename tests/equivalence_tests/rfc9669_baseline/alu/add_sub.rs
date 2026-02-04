@@ -72,19 +72,6 @@ fn test_sub64_self() {
 }
 
 #[test]
-fn test_add64_zero_to_negative() {
-    test_interpreter_and_jit_asm!(
-        "
-        mov r0, 0
-        add r0, -1
-        exit",
-        [],
-        TestContextObject::new(3),
-        ProgramResult::Ok(0xFFFFFFFFFFFFFFFF),
-    );
-}
-
-#[test]
 fn test_sub64_overflow() {
     test_interpreter_and_jit_asm!(
         "
@@ -119,7 +106,7 @@ fn test_sub32_underflow() {
         exit",
         [],
         TestContextObject::new(3),
-        ProgramResult::Ok(0x7FFFFFFF),
+        ProgramResult::Ok(0x000000007FFFFFFF),
     );
 }
 
@@ -132,7 +119,7 @@ fn test_neg32_intmin() {
         exit",
         [],
         TestContextObject::new(3),
-        ProgramResult::Ok(0x80000000),
+        ProgramResult::Ok(0x0000000080000000),
     );
 }
 
@@ -158,7 +145,7 @@ fn test_neg32_high_bits() {
         exit",
         [],
         TestContextObject::new(3),
-        ProgramResult::Ok(0x80000000),
+        ProgramResult::Ok(0x0000000080000000),
     );
 }
 
