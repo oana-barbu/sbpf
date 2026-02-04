@@ -263,14 +263,14 @@ rsh64-imm-neg - copied
 rsh64-reg - copied
 rsh64-reg-high - copied
 rsh64-reg-neg - copied
-sdiv32-by-zero-imm - copied
-sdiv32-by-zero-reg - copied
+sdiv32-by-zero-imm - moved to negative_safety (sbpf rejects at verification)
+sdiv32-by-zero-reg - moved to negative_safety (sbpf returns error, not 0)
 sdiv32-imm - copied
 sdiv32-intmin-by-negone-imm - copied
 sdiv32-intmin-by-negone-reg - copied
 sdiv32-reg - copied
-sdiv64-by-zero-imm - copied
-sdiv64-by-zero-reg - copied
+sdiv64-by-zero-imm - moved to negative_safety (sbpf rejects at verification)
+sdiv64-by-zero-reg - moved to negative_safety (sbpf returns error, not 0)
 sdiv64-imm - copied
 sdiv64-intmin-by-negone-imm - copied
 sdiv64-intmin-by-negone-reg - copied
@@ -281,8 +281,8 @@ smod32-neg-by-neg-imm - copied as test_srem32_neg_by_neg_imm
 smod32-neg-by-neg-reg - copied as test_srem32_neg_by_neg_reg
 smod32-neg-by-pos-imm - copied as test_srem32_neg_by_pos_imm
 smod32-neg-by-pos-reg - copied as test_srem32_neg_by_pos_reg
-smod32-neg-by-zero-imm - copied as test_srem32_neg_by_zero_imm
-smod32-neg-by-zero-reg - copied as test_srem32_neg_by_zero_reg
+smod32-neg-by-zero-imm - moved to negative_safety as test_srem32_by_zero_imm (sbpf rejects at verification)
+smod32-neg-by-zero-reg - moved to negative_safety as test_srem32_by_zero_reg (sbpf returns error, not dividend)
 smod32-pos-by-neg-imm - copied as test_srem32_pos_by_neg_imm
 smod32-pos-by-neg-reg - copied as test_srem32_pos_by_neg_reg
 smod64-intmin-by-negone-imm - copied as test_srem64_intmin_by_negone_imm
@@ -291,8 +291,8 @@ smod64-neg-by-neg-imm - copied as test_srem64_neg_by_neg_imm
 smod64-neg-by-neg-reg - copied as test_srem64_neg_by_neg_reg
 smod64-neg-by-pos-imm - copied as test_srem64_neg_by_pos_imm
 smod64-neg-by-pos-reg - copied as test_srem64_neg_by_pos_reg
-smod64-neg-by-zero-imm - copied as test_srem64_neg_by_zero_imm
-smod64-neg-by-zero-reg - copied as test_srem64_neg_by_zero_reg
+smod64-neg-by-zero-imm - moved to negative_safety as test_srem64_by_zero_imm (sbpf rejects at verification)
+smod64-neg-by-zero-reg - moved to negative_safety as test_srem64_by_zero_reg (sbpf returns error, not dividend)
 smod64-pos-by-neg-imm - copied as test_srem64_pos_by_neg_imm
 smod64-pos-by-neg-reg - copied as test_srem64_pos_by_neg_reg
 stack - copied

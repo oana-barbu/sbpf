@@ -335,33 +335,6 @@ fn test_rfc9669_div64() {
 }
 
 #[test]
-fn test_sdiv32_by_zero_imm() {
-    test_interpreter_and_jit_asm!(
-        "
-        mov32 r0, 1
-        sdiv32 r0, 0
-        exit",
-        [],
-        TestContextObject::new(3),
-        ProgramResult::Ok(0x0),
-    );
-}
-
-#[test]
-fn test_sdiv32_by_zero_reg() {
-    test_interpreter_and_jit_asm!(
-        "
-        mov32 r0, 1
-        mov32 r1, 0
-        sdiv32 r0, r1
-        exit",
-        [],
-        TestContextObject::new(4),
-        ProgramResult::Ok(0x0),
-    );
-}
-
-#[test]
 fn test_sdiv32_imm() {
     test_interpreter_and_jit_asm!(
         "
@@ -412,33 +385,6 @@ fn test_sdiv32_reg() {
         [],
         TestContextObject::new(4),
         ProgramResult::Ok(0xfffffffd),
-    );
-}
-
-#[test]
-fn test_sdiv64_by_zero_imm() {
-    test_interpreter_and_jit_asm!(
-        "
-        mov r0, 1
-        sdiv r0, 0
-        exit",
-        [],
-        TestContextObject::new(3),
-        ProgramResult::Ok(0x0),
-    );
-}
-
-#[test]
-fn test_sdiv64_by_zero_reg() {
-    test_interpreter_and_jit_asm!(
-        "
-        mov r0, 1
-        mov r1, 0
-        sdiv r0, r1
-        exit",
-        [],
-        TestContextObject::new(4),
-        ProgramResult::Ok(0x0),
     );
 }
 
@@ -722,33 +668,6 @@ fn test_srem32_neg_by_pos_reg() {
 }
 
 #[test]
-fn test_srem32_neg_by_zero_imm() {
-    test_interpreter_and_jit_asm!(
-        "
-        mov32 r0, -13
-        srem32 r0, 0
-        exit",
-        [],
-        TestContextObject::new(3),
-        ProgramResult::Ok(0xfffffff3),
-    );
-}
-
-#[test]
-fn test_srem32_neg_by_zero_reg() {
-    test_interpreter_and_jit_asm!(
-        "
-        mov32 r0, -13
-        mov32 r1, 0
-        srem32 r0, r1
-        exit",
-        [],
-        TestContextObject::new(4),
-        ProgramResult::Ok(0xfffffff3),
-    );
-}
-
-#[test]
 fn test_srem32_pos_by_neg_imm() {
     test_interpreter_and_jit_asm!(
         "
@@ -853,33 +772,6 @@ fn test_srem64_neg_by_pos_reg() {
         [],
         TestContextObject::new(4),
         ProgramResult::Ok(0xffffffffffffffff),
-    );
-}
-
-#[test]
-fn test_srem64_neg_by_zero_imm() {
-    test_interpreter_and_jit_asm!(
-        "
-        mov r0, -13
-        srem64 r0, 0
-        exit",
-        [],
-        TestContextObject::new(3),
-        ProgramResult::Ok(0xfffffffffffffff3),
-    );
-}
-
-#[test]
-fn test_srem64_neg_by_zero_reg() {
-    test_interpreter_and_jit_asm!(
-        "
-        mov r0, -13
-        mov r1, 0
-        srem64 r0, r1
-        exit",
-        [],
-        TestContextObject::new(4),
-        ProgramResult::Ok(0xfffffffffffffff3),
     );
 }
 
