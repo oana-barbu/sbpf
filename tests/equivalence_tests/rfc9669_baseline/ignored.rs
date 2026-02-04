@@ -131,21 +131,6 @@ fn test_rfc9669_neg32() {
     );
 }
 
-// Uses large immediate 0x80000000; similar to test_neg in execution.rs
-#[test]
-#[ignore]
-fn test_neg32_intmin_reg() {
-    test_interpreter_and_jit_asm!(
-        "
-        mov r0, 0x80000000
-        neg32 r0
-        exit",
-        [],
-        TestContextObject::new(3),
-        ProgramResult::Ok(0x80000000),
-    );
-}
-
 // Uses large immediate 0xff00ff00; similar to test_alu32_logic in execution.rs
 #[test]
 #[ignore]

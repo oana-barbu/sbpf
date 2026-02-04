@@ -1,5 +1,5 @@
-add - copied
-add64 - copied
+add - removed; self-op moved to test_add32_self, rest similar to test_add32_sub32 in execution.rs
+add64 - removed; self-op moved to test_add64_self, rest similar to test_add64_sub64 in execution.rs
 alu-arith - copied
 alu-bit - copied
 alu64-arith - copied
@@ -156,15 +156,15 @@ mul64-imm - copied
 mul64-intmin-by-negone-imm - copied
 mul64-intmin-by-negone-reg - copied
 mul64-reg - copied
-neg - copied
-neg32-intmin-imm - copied
-neg32-intmin-reg - ignored; uses large immediate 0x80000000, similar to test_neg in execution.rs
-neg64 - copied
-neg64-intmin-imm - copied
-neg64-intmin-reg - copied
+neg - removed; similar to test_neg in execution.rs
+neg32-intmin-imm - renamed to test_neg32_intmin; uses mov32 instead of lddw
+neg32-intmin-reg - removed; covered by test_neg32_intmin
+neg64 - removed; similar to test_neg in execution.rs
+neg64-intmin-imm - renamed to test_neg64_intmin; computes INT_MIN via lsh instead of memory load
+neg64-intmin-reg - removed; covered by test_neg64_intmin
 prime - modified to use smaller input (5 instead of 67) for easier instruction count verification
 rfc9669_add32 - ignored; uses large immediate 0xffffffff, similar to test_mov32_imm and test_add32_sub32 in execution.rs
-rfc9669_add64 - copied
+rfc9669_add64 - removed; similar to test_add64_sub64 in execution.rs
 rfc9669_and32 - ignored; uses large immediate 0xff00ff00, similar to test_alu32_logic in execution.rs
 rfc9669_and64 - copied
 rfc9669_arsh32 - ignored; uses large immediates 0x80000000 and 0xffffffff, similar to test_arsh32_imm in execution.rs
@@ -227,7 +227,7 @@ rfc9669_movsx - movsx not supported by sbpf
 rfc9669_mul32 - copied
 rfc9669_mul64 - copied
 rfc9669_neg32 - ignored; uses large immediate 0xffffffd6, similar to test_neg in execution.rs
-rfc9669_neg64 - copied
+rfc9669_neg64 - removed; similar to test_neg in execution.rs
 rfc9669_or32 - copied
 rfc9669_or64 - ignored; uses large immediate 0xffffffff, similar to test_alu64_logic in execution.rs
 rfc9669_rsh32 - ignored; uses large immediate 0x80000000, similar to test_alu32_logic in execution.rs
@@ -245,7 +245,7 @@ rfc9669_stxdw - copied
 rfc9669_stxh - copied
 rfc9669_stxw - copied
 rfc9669_sub32 - ignored; uses large immediate 0xffffffff, similar to test_add32_sub32 in execution.rs
-rfc9669_sub64 - copied
+rfc9669_sub64 - removed; similar to test_add64_sub64 in execution.rs
 rfc9669_swap16 - swap not supported by sbpf
 rfc9669_swap32 - swap not supported by sbpf
 rfc9669_swap64 - swap not supported by sbpf
