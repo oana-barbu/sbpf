@@ -33,7 +33,7 @@ fn test_call_local() {
         mov r7, 7
         mov r8, 8
         mov r9, 9
-        call local func1
+        call func1
         jne r0, 15, failed
         jne r6, 6, failed
         jne r7, 7, failed
@@ -57,7 +57,7 @@ fn test_call_local() {
         mov r9, 0
         exit",
         [],
-        TestContextObject::new(31),
+        TestContextObject::new(29),
         ProgramResult::Ok(0x1),
     );
 }
@@ -100,7 +100,7 @@ fn test_rfc9669_call_local() {
         mov r3, 3
         mov r4, 4
         mov r5, 5
-        call local func1
+        call func1
         jne r0, 15, fail
         mov r0, 1
         exit
@@ -116,7 +116,7 @@ fn test_rfc9669_call_local() {
         add r0, r5
         exit",
         [],
-        TestContextObject::new(18),
+        TestContextObject::new(16),
         ProgramResult::Ok(0x1),
     );
 }

@@ -24,7 +24,7 @@ be64 - copied
 bswap16 - bswap not supported by sbpf
 bswap32 - bswap not supported by sbpf
 bswap64 - bswap not supported by sbpf
-call_local - copied
+call_local - modified syntax: `call local func1` -> `call func1`
 call_unwind_fail - copied
 callx - copied
 div32-by-zero-reg - moved to negative_safety (sbpf returns error, not 0)
@@ -175,7 +175,7 @@ rfc9669_be64 - copied
 rfc9669_bswap16 - bswap not supported by sbpf
 rfc9669_bswap32 - bswap not supported by sbpf
 rfc9669_bswap64 - bswap not supported by sbpf
-rfc9669_call_local - copied
+rfc9669_call_local - modified syntax: `call local func1` -> `call func1`
 rfc9669_div32 - modified to remove divide by zero operation (sbpf returns error, not 0)
 rfc9669_div64 - copied
 rfc9669_exit - copied
