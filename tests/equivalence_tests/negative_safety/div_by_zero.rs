@@ -3,12 +3,13 @@
 
 extern crate test_utils;
 
+use crate::common::v2_config;
 use solana_sbpf::{
     assembler::assemble,
     ebpf,
     error::{EbpfError, ProgramResult},
     memory_region::MemoryRegion,
-    program::{BuiltinProgram, SBPFVersion},
+    program::BuiltinProgram,
     static_analysis::Analysis,
     verifier::{RequisiteVerifier, VerifierError},
     vm::{Config, ContextObject},
@@ -87,13 +88,6 @@ fn test_mod64_by_zero_reg() {
         TestContextObject::new(3),
         ProgramResult::Err(EbpfError::DivideByZero),
     );
-}
-
-fn v2_config() -> Config {
-    Config {
-        enabled_sbpf_versions: SBPFVersion::V2..=SBPFVersion::V2,
-        ..Config::default()
-    }
 }
 
 #[test]

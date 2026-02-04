@@ -3,6 +3,7 @@
 
 extern crate test_utils;
 
+use crate::common::v2_config;
 use solana_sbpf::{
     assembler::assemble,
     ebpf,
@@ -341,6 +342,7 @@ fn test_sdiv32_imm() {
         mov32 r0, -12
         sdiv32 r0, 4
         exit",
+        v2_config(),
         [],
         TestContextObject::new(3),
         ProgramResult::Ok(0xfffffffd),
@@ -354,6 +356,7 @@ fn test_sdiv32_intmin_by_negone_imm() {
         mov32 r0, 0x80000000
         sdiv32 r0, -1
         exit",
+        v2_config(),
         [],
         TestContextObject::new(3),
         ProgramResult::Ok(0x80000000),
@@ -368,6 +371,7 @@ fn test_sdiv32_intmin_by_negone_reg() {
         mov32 r1, -1
         sdiv32 r0, r1
         exit",
+        v2_config(),
         [],
         TestContextObject::new(4),
         ProgramResult::Ok(0x80000000),
@@ -382,6 +386,7 @@ fn test_sdiv32_reg() {
         mov32 r1, 4
         sdiv32 r0, r1
         exit",
+        v2_config(),
         [],
         TestContextObject::new(4),
         ProgramResult::Ok(0xfffffffd),
@@ -395,6 +400,7 @@ fn test_sdiv64_imm() {
         mov r0, -12
         sdiv r0, 4
         exit",
+        v2_config(),
         [],
         TestContextObject::new(3),
         ProgramResult::Ok(0xfffffffffffffffd),
@@ -408,6 +414,7 @@ fn test_sdiv64_intmin_by_negone_imm() {
         ldxdw r0, [r1+0]
         sdiv r0, -1
         exit",
+        v2_config(),
         [0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x80],
         TestContextObject::new(3),
         ProgramResult::Ok(0x8000000000000000),
@@ -422,6 +429,7 @@ fn test_sdiv64_intmin_by_negone_reg() {
         mov r1, -1
         sdiv r0, r1
         exit",
+        v2_config(),
         [0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x80],
         TestContextObject::new(4),
         ProgramResult::Ok(0x8000000000000000),
@@ -436,6 +444,7 @@ fn test_sdiv64_reg() {
         mov r1, 4
         sdiv r0, r1
         exit",
+        v2_config(),
         [],
         TestContextObject::new(4),
         ProgramResult::Ok(0xfffffffffffffffd),
@@ -458,6 +467,7 @@ fn test_rfc9669_sdiv32() {
         fail:
         mov r0, 0
         exit",
+        v2_config(),
         [],
         TestContextObject::new(11),
         ProgramResult::Ok(0x1),
@@ -480,6 +490,7 @@ fn test_rfc9669_sdiv64() {
         fail:
         mov r0, 0
         exit",
+        v2_config(),
         [],
         TestContextObject::new(11),
         ProgramResult::Ok(0x1),
@@ -593,6 +604,7 @@ fn test_srem32_intmin_by_negone_imm() {
         mov32 r0, 0x80000000
         srem32 r0, -1
         exit",
+        v2_config(),
         [],
         TestContextObject::new(3),
         ProgramResult::Ok(0x0),
@@ -607,6 +619,7 @@ fn test_srem32_intmin_by_negone_reg() {
         mov32 r1, -1
         srem32 r0, r1
         exit",
+        v2_config(),
         [],
         TestContextObject::new(4),
         ProgramResult::Ok(0x0),
@@ -620,6 +633,7 @@ fn test_srem32_neg_by_neg_imm() {
         mov32 r0, -13
         srem32 r0, -4
         exit",
+        v2_config(),
         [],
         TestContextObject::new(3),
         ProgramResult::Ok(0xffffffff),
@@ -634,6 +648,7 @@ fn test_srem32_neg_by_neg_reg() {
         mov32 r1, -4
         srem32 r0, r1
         exit",
+        v2_config(),
         [],
         TestContextObject::new(4),
         ProgramResult::Ok(0xffffffff),
@@ -647,6 +662,7 @@ fn test_srem32_neg_by_pos_imm() {
         mov32 r0, -13
         srem32 r0, 4
         exit",
+        v2_config(),
         [],
         TestContextObject::new(3),
         ProgramResult::Ok(0xffffffff),
@@ -661,6 +677,7 @@ fn test_srem32_neg_by_pos_reg() {
         mov32 r1, 4
         srem32 r0, r1
         exit",
+        v2_config(),
         [],
         TestContextObject::new(4),
         ProgramResult::Ok(0xffffffff),
@@ -674,6 +691,7 @@ fn test_srem32_pos_by_neg_imm() {
         mov32 r0, 13
         srem32 r0, -4
         exit",
+        v2_config(),
         [],
         TestContextObject::new(3),
         ProgramResult::Ok(0x1),
@@ -688,6 +706,7 @@ fn test_srem32_pos_by_neg_reg() {
         mov32 r1, -4
         srem32 r0, r1
         exit",
+        v2_config(),
         [],
         TestContextObject::new(4),
         ProgramResult::Ok(0x1),
@@ -701,6 +720,7 @@ fn test_srem64_intmin_by_negone_imm() {
         lddw r0, 0x8000000000000000
         srem64 r0, -1
         exit",
+        v2_config(),
         [],
         TestContextObject::new(4),
         ProgramResult::Ok(0x0),
@@ -715,6 +735,7 @@ fn test_srem64_intmin_by_negone_reg() {
         mov r1, -1
         srem64 r0, r1
         exit",
+        v2_config(),
         [],
         TestContextObject::new(5),
         ProgramResult::Ok(0x0),
@@ -728,6 +749,7 @@ fn test_srem64_neg_by_neg_imm() {
         mov r0, -13
         srem64 r0, -4
         exit",
+        v2_config(),
         [],
         TestContextObject::new(3),
         ProgramResult::Ok(0xffffffffffffffff),
@@ -742,6 +764,7 @@ fn test_srem64_neg_by_neg_reg() {
         mov r1, -4
         srem64 r0, r1
         exit",
+        v2_config(),
         [],
         TestContextObject::new(4),
         ProgramResult::Ok(0xffffffffffffffff),
@@ -755,6 +778,7 @@ fn test_srem64_neg_by_pos_imm() {
         mov r0, -13
         srem64 r0, 4
         exit",
+        v2_config(),
         [],
         TestContextObject::new(3),
         ProgramResult::Ok(0xffffffffffffffff),
@@ -769,6 +793,7 @@ fn test_srem64_neg_by_pos_reg() {
         mov r1, 4
         srem64 r0, r1
         exit",
+        v2_config(),
         [],
         TestContextObject::new(4),
         ProgramResult::Ok(0xffffffffffffffff),
@@ -782,6 +807,7 @@ fn test_srem64_pos_by_neg_imm() {
         mov r0, 13
         srem64 r0, -4
         exit",
+        v2_config(),
         [],
         TestContextObject::new(3),
         ProgramResult::Ok(0x1),
@@ -796,6 +822,7 @@ fn test_srem64_pos_by_neg_reg() {
         mov r1, -4
         srem64 r0, r1
         exit",
+        v2_config(),
         [],
         TestContextObject::new(4),
         ProgramResult::Ok(0x1),
@@ -818,6 +845,7 @@ fn test_rfc9669_srem32() {
         fail:
         mov r0, 0
         exit",
+        v2_config(),
         [],
         TestContextObject::new(11),
         ProgramResult::Ok(0x1),
@@ -840,6 +868,7 @@ fn test_rfc9669_srem64() {
         fail:
         mov r0, 0
         exit",
+        v2_config(),
         [],
         TestContextObject::new(11),
         ProgramResult::Ok(0x1),
