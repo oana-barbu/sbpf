@@ -408,35 +408,6 @@ fn test_sdiv64_imm() {
 }
 
 #[test]
-fn test_sdiv64_intmin_by_negone_imm() {
-    test_interpreter_and_jit_asm!(
-        "
-        ldxdw r0, [r1+0]
-        sdiv r0, -1
-        exit",
-        v2_config(),
-        [0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x80],
-        TestContextObject::new(3),
-        ProgramResult::Ok(0x8000000000000000),
-    );
-}
-
-#[test]
-fn test_sdiv64_intmin_by_negone_reg() {
-    test_interpreter_and_jit_asm!(
-        "
-        ldxdw r0, [r1+0]
-        mov r1, -1
-        sdiv r0, r1
-        exit",
-        v2_config(),
-        [0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x80],
-        TestContextObject::new(4),
-        ProgramResult::Ok(0x8000000000000000),
-    );
-}
-
-#[test]
 fn test_sdiv64_reg() {
     test_interpreter_and_jit_asm!(
         "
@@ -710,35 +681,6 @@ fn test_srem32_pos_by_neg_reg() {
         [],
         TestContextObject::new(4),
         ProgramResult::Ok(0x1),
-    );
-}
-
-#[test]
-fn test_srem64_intmin_by_negone_imm() {
-    test_interpreter_and_jit_asm!(
-        "
-        lddw r0, 0x8000000000000000
-        srem64 r0, -1
-        exit",
-        v2_config(),
-        [],
-        TestContextObject::new(4),
-        ProgramResult::Ok(0x0),
-    );
-}
-
-#[test]
-fn test_srem64_intmin_by_negone_reg() {
-    test_interpreter_and_jit_asm!(
-        "
-        lddw r0, 0x8000000000000000
-        mov r1, -1
-        srem64 r0, r1
-        exit",
-        v2_config(),
-        [],
-        TestContextObject::new(5),
-        ProgramResult::Ok(0x0),
     );
 }
 

@@ -272,8 +272,8 @@ sdiv32-reg - copied
 sdiv64-by-zero-imm - moved to negative_safety (sbpf rejects at verification)
 sdiv64-by-zero-reg - moved to negative_safety (sbpf returns error, not 0)
 sdiv64-imm - copied
-sdiv64-intmin-by-negone-imm - copied
-sdiv64-intmin-by-negone-reg - copied
+sdiv64-intmin-by-negone-imm - moved to negative_safety (sbpf returns DivideOverflow error, not wrapped result)
+sdiv64-intmin-by-negone-reg - moved to negative_safety (sbpf returns DivideOverflow error, not wrapped result)
 sdiv64-reg - copied
 smod32-intmin-by-negone-imm - copied as test_srem32_intmin_by_negone_imm
 smod32-intmin-by-negone-reg - copied as test_srem32_intmin_by_negone_reg
@@ -285,8 +285,8 @@ smod32-neg-by-zero-imm - moved to negative_safety as test_srem32_by_zero_imm (sb
 smod32-neg-by-zero-reg - moved to negative_safety as test_srem32_by_zero_reg (sbpf returns error, not dividend)
 smod32-pos-by-neg-imm - copied as test_srem32_pos_by_neg_imm
 smod32-pos-by-neg-reg - copied as test_srem32_pos_by_neg_reg
-smod64-intmin-by-negone-imm - copied as test_srem64_intmin_by_negone_imm
-smod64-intmin-by-negone-reg - copied as test_srem64_intmin_by_negone_reg
+smod64-intmin-by-negone-imm - moved to negative_safety (sbpf returns DivideOverflow error, not 0; lddw changed to ldxdw because lddw not available in V2)
+smod64-intmin-by-negone-reg - moved to negative_safety (sbpf returns DivideOverflow error, not 0; lddw changed to ldxdw because lddw not available in V2)
 smod64-neg-by-neg-imm - copied as test_srem64_neg_by_neg_imm
 smod64-neg-by-neg-reg - copied as test_srem64_neg_by_neg_reg
 smod64-neg-by-pos-imm - copied as test_srem64_neg_by_pos_imm
