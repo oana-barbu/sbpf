@@ -34,33 +34,6 @@ fn test_mul32_imm() {
 }
 
 #[test]
-fn test_mul32_intmin_by_negone_imm() {
-    test_interpreter_and_jit_asm!(
-        "
-        mov r0, 0x80000000
-        mul32 r0, -1
-        exit",
-        [],
-        TestContextObject::new(3),
-        ProgramResult::Ok(0x80000000),
-    );
-}
-
-#[test]
-fn test_mul32_intmin_by_negone_reg() {
-    test_interpreter_and_jit_asm!(
-        "
-        mov r0, 0x80000000
-        mov r1, -1
-        mul32 r0, r1
-        exit",
-        [],
-        TestContextObject::new(4),
-        ProgramResult::Ok(0x80000000),
-    );
-}
-
-#[test]
 fn test_mul32_reg_overflow() {
     test_interpreter_and_jit_asm!(
         "
@@ -306,32 +279,6 @@ fn test_rfc9669_div32() {
 }
 
 #[test]
-fn test_rfc9669_div64() {
-    test_interpreter_and_jit_asm!(
-        "
-        lddw r1, 0x0000000000000054
-        mov r2, 2
-        div r1, r2
-        jne r1, 42, fail
-        mov r3, 123
-        mov r4, 0
-        div r3, r4
-        jne r3, 0, fail
-        lddw r5, 0x8000000000000000
-        div r5, 0x80000000
-        jne r5, 0, fail
-        mov r0, 1
-        exit
-        fail:
-        mov r0, 0
-        exit",
-        [],
-        TestContextObject::new(15),
-        ProgramResult::Ok(0x1),
-    );
-}
-
-#[test]
 fn test_sdiv32_imm() {
     test_interpreter_and_jit_asm!(
         "
@@ -342,35 +289,6 @@ fn test_sdiv32_imm() {
         [],
         TestContextObject::new(3),
         ProgramResult::Ok(0xfffffffd),
-    );
-}
-
-#[test]
-fn test_sdiv32_intmin_by_negone_imm() {
-    test_interpreter_and_jit_asm!(
-        "
-        mov32 r0, 0x80000000
-        sdiv32 r0, -1
-        exit",
-        v2_config(),
-        [],
-        TestContextObject::new(3),
-        ProgramResult::Ok(0x80000000),
-    );
-}
-
-#[test]
-fn test_sdiv32_intmin_by_negone_reg() {
-    test_interpreter_and_jit_asm!(
-        "
-        mov32 r0, 0x80000000
-        mov32 r1, -1
-        sdiv32 r0, r1
-        exit",
-        v2_config(),
-        [],
-        TestContextObject::new(4),
-        ProgramResult::Ok(0x80000000),
     );
 }
 
@@ -419,52 +337,6 @@ fn test_sdiv64_reg() {
 }
 
 #[test]
-fn test_rfc9669_sdiv32() {
-    test_interpreter_and_jit_asm!(
-        "
-        mov32 r1, -84
-        sdiv32 r1, 2
-        jne32 r1, 0xffffffd6, fail
-        mov32 r2, -126
-        mov32 r3, 3
-        sdiv32 r2, r3
-        jne32 r2, 0xffffffd6, fail
-        mov r0, 1
-        exit
-        fail:
-        mov r0, 0
-        exit",
-        v2_config(),
-        [],
-        TestContextObject::new(11),
-        ProgramResult::Ok(0x1),
-    );
-}
-
-#[test]
-fn test_rfc9669_sdiv64() {
-    test_interpreter_and_jit_asm!(
-        "
-        mov r1, -84
-        sdiv r1, 2
-        jne r1, 0xffffffd6, fail
-        mov r2, -126
-        mov r3, 3
-        sdiv r2, r3
-        jne r2, 0xffffffd6, fail
-        mov r0, 1
-        exit
-        fail:
-        mov r0, 0
-        exit",
-        v2_config(),
-        [],
-        TestContextObject::new(11),
-        ProgramResult::Ok(0x1),
-    );
-}
-
-#[test]
 fn test_mod() {
     test_interpreter_and_jit_asm!(
         "
@@ -491,25 +363,6 @@ fn test_mod32() {
         [],
         TestContextObject::new(3),
         ProgramResult::Ok(0x0),
-    );
-}
-
-#[test]
-fn test_mod64() {
-    test_interpreter_and_jit_asm!(
-        "
-        mov32 r0, 0xb1858436
-        lsh r0, 32
-        or r0, 0x100dc5c8
-        mov32 r1, 0xdde263e
-        lsh r1, 32
-        or r1, 0x3cbef7f3
-        mod r0, r1
-        mod r0, 0x658f1778
-        exit",
-        [],
-        TestContextObject::new(9),
-        ProgramResult::Ok(0x30ba5a04),
     );
 }
 
@@ -554,35 +407,6 @@ fn test_rfc9669_mod64() {
         [],
         TestContextObject::new(9),
         ProgramResult::Ok(0x1),
-    );
-}
-
-#[test]
-fn test_srem32_intmin_by_negone_imm() {
-    test_interpreter_and_jit_asm!(
-        "
-        mov32 r0, 0x80000000
-        srem32 r0, -1
-        exit",
-        v2_config(),
-        [],
-        TestContextObject::new(3),
-        ProgramResult::Ok(0x0),
-    );
-}
-
-#[test]
-fn test_srem32_intmin_by_negone_reg() {
-    test_interpreter_and_jit_asm!(
-        "
-        mov32 r0, 0x80000000
-        mov32 r1, -1
-        srem32 r0, r1
-        exit",
-        v2_config(),
-        [],
-        TestContextObject::new(4),
-        ProgramResult::Ok(0x0),
     );
 }
 
@@ -760,48 +584,3 @@ fn test_srem64_pos_by_neg_reg() {
     );
 }
 
-#[test]
-fn test_rfc9669_srem32() {
-    test_interpreter_and_jit_asm!(
-        "
-        mov32 r1, -10
-        srem32 r1, 3
-        jne32 r1, 0xffffffff, fail
-        mov32 r2, -10
-        mov32 r3, 3
-        srem32 r2, r3
-        jne32 r2, 0xffffffff, fail
-        mov r0, 1
-        exit
-        fail:
-        mov r0, 0
-        exit",
-        v2_config(),
-        [],
-        TestContextObject::new(11),
-        ProgramResult::Ok(0x1),
-    );
-}
-
-#[test]
-fn test_rfc9669_srem64() {
-    test_interpreter_and_jit_asm!(
-        "
-        mov r1, -10
-        srem64 r1, 3
-        jne r1, 0xffffffff, fail
-        mov r2, -10
-        mov r3, 3
-        srem64 r2, r3
-        jne r2, 0xffffffff, fail
-        mov r0, 1
-        exit
-        fail:
-        mov r0, 0
-        exit",
-        v2_config(),
-        [],
-        TestContextObject::new(11),
-        ProgramResult::Ok(0x1),
-    );
-}

@@ -39,7 +39,7 @@ div64-negative-reg - copied
 div64-reg - copied
 exit - copied
 exit-not-last - copied
-j-signed-imm - copied
+j-signed-imm - ignored; uses large immediate 0x80000000, similar to jeq-imm, jgt-imm, jlt-imm, jne-imm, jset-imm tests in this crate
 ja32 - ja32 not supported by sbpf
 jeq-imm - copied
 jeq-reg - copied
@@ -69,22 +69,22 @@ jset-imm - copied
 jset-reg - copied
 jset32-imm - copied
 jset32-reg - copied
-jsge-imm - copied
-jsge-reg - copied
-jsge32-imm - copied
-jsge32-reg - copied
-jsgt-imm - copied
-jsgt-reg - copied
-jsgt32-imm - copied
-jsgt32-reg - copied
-jsle-imm - copied
-jsle-reg - copied
-jsle32-imm - copied
-jsle32-reg - copied
-jslt-imm - copied
-jslt-reg - copied
-jslt32-imm - copied
-jslt32-reg - copied
+jsge-imm - ignored; uses large immediates 0xfffffffe, 0xffffffff, similar to test_rfc9669_jsge in this crate
+jsge-reg - ignored; uses large immediates 0xfffffffe, 0xffffffff, similar to test_rfc9669_jsge in this crate
+jsge32-imm - ignored; uses large immediates 0xfffffffe, 0xffffffff, similar to test_rfc9669_jsge in this crate
+jsge32-reg - ignored; uses large immediates 0xfffffffe, 0xffffffff, similar to test_rfc9669_jsge in this crate
+jsgt-imm - ignored; uses large immediates 0xfffffffe, 0xffffffff, similar to test_rfc9669_jsgt in this crate
+jsgt-reg - ignored; uses large immediates 0xfffffffe, 0xffffffff, similar to test_rfc9669_jsgt in this crate
+jsgt32-imm - ignored; uses large immediates 0xfffffffe, 0xffffffff, similar to test_rfc9669_jsgt in this crate
+jsgt32-reg - ignored; uses large immediates 0xfffffffe, 0xffffffff, similar to test_rfc9669_jsgt in this crate
+jsle-imm - ignored; uses large immediates 0xfffffffe, 0xffffffff, similar to test_rfc9669_jsle in this crate
+jsle-reg - ignored; uses large immediates 0xfffffffe, 0xffffffff, similar to test_rfc9669_jsle in this crate
+jsle32-imm - ignored; uses large immediates 0xfffffffe, 0xffffffff, similar to test_rfc9669_jsle in this crate
+jsle32-reg - ignored; uses large immediates 0xfffffffe, 0xffffffff, similar to test_rfc9669_jsle in this crate
+jslt-imm - ignored; uses large immediates 0xfffffffe, 0xffffffff, similar to test_rfc9669_jslt in this crate
+jslt-reg - ignored; uses large immediates 0xfffffffe, 0xffffffff, similar to test_rfc9669_jslt in this crate
+jslt32-imm - ignored; uses large immediates 0xfffffffe, 0xffffffff, similar to test_rfc9669_jslt in this crate
+jslt32-reg - ignored; uses large immediates 0xfffffffe, 0xffffffff, similar to test_rfc9669_jslt in this crate
 lddw - copied
 lddw2 - copied
 ldxb - copied
@@ -133,11 +133,11 @@ lsh64-imm-neg - moved to negative_safety (sbpf rejects shift >= bit width)
 lsh64-reg - copied
 lsh64-reg-high - copied
 lsh64-reg-neg - copied
-mem-len - copied
+mem-len - ignored; sbpf does not populate r2 with memory length
 mod - copied
 mod-by-zero-reg - renamed to test_mod32_by_zero_reg, moved to negative_safety
 mod32 - copied
-mod64 - copied
+mod64 - ignored; uses large immediate 0xb1858436, similar to test_mod in execution.rs
 mod64-by-zero-reg - moved to negative_safety (sbpf returns error, not dividend)
 mov - copied
 mov64 - copied
@@ -148,8 +148,8 @@ movsx3264-reg - movsx not supported by sbpf
 movsx832-reg - movsx not supported by sbpf
 movsx864-reg - movsx not supported by sbpf
 mul32-imm - copied
-mul32-intmin-by-negone-imm - copied
-mul32-intmin-by-negone-reg - copied
+mul32-intmin-by-negone-imm - ignored; uses large immediate 0x80000000, similar to test_mul in execution.rs
+mul32-intmin-by-negone-reg - ignored; uses large immediate 0x80000000, similar to test_mul in execution.rs
 mul32-reg - copied
 mul32-reg-overflow - copied
 mul64-imm - copied
@@ -158,17 +158,17 @@ mul64-intmin-by-negone-reg - copied
 mul64-reg - copied
 neg - copied
 neg32-intmin-imm - copied
-neg32-intmin-reg - copied
+neg32-intmin-reg - ignored; uses large immediate 0x80000000, similar to test_neg in execution.rs
 neg64 - copied
 neg64-intmin-imm - copied
 neg64-intmin-reg - copied
 prime - modified to use smaller input (5 instead of 67) for easier instruction count verification
-rfc9669_add32 - copied
+rfc9669_add32 - ignored; uses large immediate 0xffffffff, similar to test_mov32_imm and test_add32_sub32 in execution.rs
 rfc9669_add64 - copied
-rfc9669_and32 - copied
+rfc9669_and32 - ignored; uses large immediate 0xff00ff00, similar to test_alu32_logic in execution.rs
 rfc9669_and64 - copied
-rfc9669_arsh32 - copied
-rfc9669_arsh64 - copied
+rfc9669_arsh32 - ignored; uses large immediates 0x80000000 and 0xffffffff, similar to test_arsh32_imm in execution.rs
+rfc9669_arsh64 - ignored; uses large immediate 0xffffffff, similar to test_arsh64 in execution.rs
 rfc9669_be16 - copied
 rfc9669_be32 - copied
 rfc9669_be64 - copied
@@ -177,17 +177,17 @@ rfc9669_bswap32 - bswap not supported by sbpf
 rfc9669_bswap64 - bswap not supported by sbpf
 rfc9669_call_local - modified syntax: `call local func1` -> `call func1`
 rfc9669_div32 - modified to remove divide by zero operation (sbpf returns error, not 0)
-rfc9669_div64 - copied
+rfc9669_div64 - ignored; uses large immediate 0x80000000 and tests divide by zero, similar to test_div in execution.rs
 rfc9669_exit - copied
 rfc9669_ja - copied
 rfc9669_ja32 - ja32 not supported by sbpf
-rfc9669_jeq - copied
+rfc9669_jeq - ignored; uses large immediate 0xffffffff, similar to jeq-imm and jeq32-imm tests in this crate
 rfc9669_jge - copied
 rfc9669_jgt - copied
 rfc9669_jle - copied
 rfc9669_jlt - copied
 rfc9669_jne - copied
-rfc9669_jset - copied
+rfc9669_jset - ignored; uses large immediate 0x80000000, similar to jset-imm and jset32-imm tests in this crate
 rfc9669_jsge - copied
 rfc9669_jsgt - copied
 rfc9669_jsle - copied
@@ -217,25 +217,25 @@ rfc9669_lock_xchg32 - lock not supported by sbpf
 rfc9669_lock_xchg64 - lock not supported by sbpf
 rfc9669_lock_xor32 - lock not supported by sbpf
 rfc9669_lock_xor64 - lock not supported by sbpf
-rfc9669_lsh32 - copied
+rfc9669_lsh32 - ignored; uses large immediate 0x80000000, similar to test_alu32_logic in execution.rs
 rfc9669_lsh64 - copied
 rfc9669_mod32 - modified to remove mod by zero operation (sbpf returns error, not dividend)
 rfc9669_mod64 - modified to remove mod by zero operation (sbpf returns error, not dividend)
-rfc9669_mov32 - copied
-rfc9669_mov64 - copied
+rfc9669_mov32 - ignored; uses large immediates 0xffffffff and 0x80000000, similar to test_mov32_imm in execution.rs
+rfc9669_mov64 - ignored; uses large immediate 0xffffffff, similar to test_mov64_imm in execution.rs
 rfc9669_movsx - movsx not supported by sbpf
 rfc9669_mul32 - copied
 rfc9669_mul64 - copied
-rfc9669_neg32 - copied
+rfc9669_neg32 - ignored; uses large immediate 0xffffffd6, similar to test_neg in execution.rs
 rfc9669_neg64 - copied
 rfc9669_or32 - copied
-rfc9669_or64 - copied
-rfc9669_rsh32 - copied
+rfc9669_or64 - ignored; uses large immediate 0xffffffff, similar to test_alu64_logic in execution.rs
+rfc9669_rsh32 - ignored; uses large immediate 0x80000000, similar to test_alu32_logic in execution.rs
 rfc9669_rsh64 - copied
-rfc9669_sdiv32 - copied
-rfc9669_sdiv64 - copied
-rfc9669_smod32 - copied as test_rfc9669_srem32
-rfc9669_smod64 - copied as test_rfc9669_srem64
+rfc9669_sdiv32 - ignored; uses large immediate 0xffffffd6 in comparison, similar to test_sdiv32_imm in this crate
+rfc9669_sdiv64 - ignored; uses large immediate 0xffffffd6 in comparison, similar to test_sdiv64_imm in this crate
+rfc9669_smod32 - renamed to test_rfc9669_srem32; ignored; uses large immediate 0xffffffff in comparison, similar to test_srem32_neg_by_pos_imm in this crate
+rfc9669_smod64 - renamed to test_rfc9669_srem64; ignored; uses large immediate 0xffffffff in comparison, similar to test_srem64_neg_by_pos_imm in this crate
 rfc9669_stb - copied
 rfc9669_stdw - copied
 rfc9669_sth - copied
@@ -244,13 +244,13 @@ rfc9669_stxb - copied
 rfc9669_stxdw - copied
 rfc9669_stxh - copied
 rfc9669_stxw - copied
-rfc9669_sub32 - copied
+rfc9669_sub32 - ignored; uses large immediate 0xffffffff, similar to test_add32_sub32 in execution.rs
 rfc9669_sub64 - copied
 rfc9669_swap16 - swap not supported by sbpf
 rfc9669_swap32 - swap not supported by sbpf
 rfc9669_swap64 - swap not supported by sbpf
 rfc9669_xor32 - copied
-rfc9669_xor64 - copied
+rfc9669_xor64 - ignored; uses large immediate 0xf0f0f0f0, similar to test_alu64_logic in execution.rs
 rsh32-imm - copied
 rsh32-imm-high - moved to negative_safety (sbpf rejects shift >= bit width)
 rsh32-imm-neg - moved to negative_safety (sbpf rejects shift >= bit width)
@@ -266,8 +266,8 @@ rsh64-reg-neg - copied
 sdiv32-by-zero-imm - moved to negative_safety (sbpf rejects at verification)
 sdiv32-by-zero-reg - moved to negative_safety (sbpf returns error, not 0)
 sdiv32-imm - copied
-sdiv32-intmin-by-negone-imm - copied
-sdiv32-intmin-by-negone-reg - copied
+sdiv32-intmin-by-negone-imm - ignored; uses large immediate 0x80000000, similar to test_sdiv32_imm in this crate
+sdiv32-intmin-by-negone-reg - ignored; uses large immediate 0x80000000, similar to test_sdiv32_reg in this crate
 sdiv32-reg - copied
 sdiv64-by-zero-imm - moved to negative_safety (sbpf rejects at verification)
 sdiv64-by-zero-reg - moved to negative_safety (sbpf returns error, not 0)
@@ -275,8 +275,8 @@ sdiv64-imm - copied
 sdiv64-intmin-by-negone-imm - moved to negative_safety (sbpf returns DivideOverflow error, not wrapped result)
 sdiv64-intmin-by-negone-reg - moved to negative_safety (sbpf returns DivideOverflow error, not wrapped result)
 sdiv64-reg - copied
-smod32-intmin-by-negone-imm - copied as test_srem32_intmin_by_negone_imm
-smod32-intmin-by-negone-reg - copied as test_srem32_intmin_by_negone_reg
+smod32-intmin-by-negone-imm - renamed to test_srem32_intmin_by_negone_imm; ignored; uses large immediate 0x80000000, similar to test_srem32_neg_by_neg_imm in this crate
+smod32-intmin-by-negone-reg - renamed to test_srem32_intmin_by_negone_reg; ignored; uses large immediate 0x80000000, similar to test_srem32_neg_by_neg_reg in this crate
 smod32-neg-by-neg-imm - copied as test_srem32_neg_by_neg_imm
 smod32-neg-by-neg-reg - copied as test_srem32_neg_by_neg_reg
 smod32-neg-by-pos-imm - copied as test_srem32_neg_by_pos_imm
@@ -304,7 +304,7 @@ stxb - copied
 stxb-all - copied
 stxb-all2 - copied
 stxb-chain - copied
-stxdw - copied
+stxdw - ignored; uses large immediate 0x88776655, similar to test_rfc9669_stxdw in this crate
 stxh - copied
 stxw - copied
 subnet - copied

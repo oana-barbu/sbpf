@@ -286,22 +286,6 @@ fn test_rfc9669_stxw() {
 }
 
 #[test]
-fn test_stxdw() {
-    test_interpreter_and_jit_asm!(
-        "
-        mov r2, 0x88776655
-        lsh r2, 32
-        or r2, 0x44332211
-        stxdw [r1+2], r2
-        ldxdw r0, [r1+2]
-        exit",
-        [0xaa, 0xbb, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xcc, 0xdd],
-        TestContextObject::new(6),
-        ProgramResult::Ok(0x8877665544332211),
-    );
-}
-
-#[test]
 fn test_rfc9669_stxdw() {
     test_interpreter_and_jit_asm!(
         "

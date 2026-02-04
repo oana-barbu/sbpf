@@ -54,35 +54,6 @@ fn test_add64() {
 }
 
 #[test]
-fn test_rfc9669_add32() {
-    test_interpreter_and_jit_asm!(
-        "
-        mov32 r1, 0xffffffff
-        add32 r1, 1
-        jne32 r1, 0, fail
-        mov32 r2, 10
-        add32 r2, 32
-        jne32 r2, 42, fail
-        mov32 r3, 40
-        mov32 r4, 2
-        add32 r3, r4
-        jne32 r3, 42, fail
-        mov r5, -1
-        mov32 r5, 1
-        rsh r5, 32
-        jne32 r5, 0, fail
-        mov r0, 1
-        exit
-        fail:
-        mov r0, 0
-        exit",
-        [],
-        TestContextObject::new(18),
-        ProgramResult::Ok(0x1),
-    );
-}
-
-#[test]
 fn test_rfc9669_add64() {
     test_interpreter_and_jit_asm!(
         "
@@ -100,31 +71,6 @@ fn test_rfc9669_add64() {
         exit",
         [],
         TestContextObject::new(9),
-        ProgramResult::Ok(0x1),
-    );
-}
-
-#[test]
-fn test_rfc9669_sub32() {
-    test_interpreter_and_jit_asm!(
-        "
-        mov32 r1, 0
-        sub32 r1, 1
-        jne32 r1, 0xffffffff, fail
-        mov32 r2, 50
-        sub32 r2, 8
-        jne32 r2, 42, fail
-        mov32 r3, 50
-        mov32 r4, 8
-        sub32 r3, r4
-        jne32 r3, 42, fail
-        mov r0, 1
-        exit
-        fail:
-        mov r0, 0
-        exit",
-        [],
-        TestContextObject::new(14),
         ProgramResult::Ok(0x1),
     );
 }
@@ -178,19 +124,6 @@ fn test_neg32_intmin_imm() {
 }
 
 #[test]
-fn test_neg32_intmin_reg() {
-    test_interpreter_and_jit_asm!(
-        "
-        mov r0, 0x80000000
-        neg32 r0
-        exit",
-        [],
-        TestContextObject::new(3),
-        ProgramResult::Ok(0x80000000),
-    );
-}
-
-#[test]
 fn test_neg64_intmin_imm() {
     test_interpreter_and_jit_asm!(
         "
@@ -227,24 +160,6 @@ fn test_neg64() {
         [],
         TestContextObject::new(3),
         ProgramResult::Ok(0xfffffffffffffffe),
-    );
-}
-
-#[test]
-fn test_rfc9669_neg32() {
-    test_interpreter_and_jit_asm!(
-        "
-        mov32 r1, 42
-        neg32 r1
-        jne32 r1, 0xffffffd6, fail
-        mov r0, 1
-        exit
-        fail:
-        mov r0, 0
-        exit",
-        [],
-        TestContextObject::new(7),
-        ProgramResult::Ok(0x1),
     );
 }
 

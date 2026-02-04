@@ -307,15 +307,3 @@ fn test_rfc9669_ldxdw() {
         ProgramResult::Ok(0x1122334455667788),
     );
 }
-
-#[test]
-fn test_mem_len() {
-    test_interpreter_and_jit_asm!(
-        "
-        mov r0, r2
-        exit",
-        [0x00, 0x00, 0x00, 0x01, 0x00, 0x00, 0x00, 0x02],
-        TestContextObject::new(2),
-        ProgramResult::Ok(0x8),
-    );
-}

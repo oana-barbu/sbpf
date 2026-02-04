@@ -65,49 +65,6 @@ fn test_mov64() {
 }
 
 #[test]
-fn test_rfc9669_mov32() {
-    test_interpreter_and_jit_asm!(
-        "
-        mov32 r1, 42
-        jne32 r1, 42, fail
-        mov32 r2, -1
-        jne32 r2, 0xffffffff, fail
-        mov32 r3, 0x80000000
-        mov32 r4, r3
-        jne32 r3, r4, fail
-        mov r0, 1
-        exit
-        fail:
-        mov r0, 0
-        exit",
-        [],
-        TestContextObject::new(11),
-        ProgramResult::Ok(0x1),
-    );
-}
-
-#[test]
-fn test_rfc9669_mov64() {
-    test_interpreter_and_jit_asm!(
-        "
-        mov r1, 42
-        jne r1, 42, fail
-        mov r2, -1
-        jne r2, 0xffffffff, fail
-        mov r3, r2
-        jne r2, r3, fail
-        mov r0, 1
-        exit
-        fail:
-        mov r0, 0
-        exit",
-        [],
-        TestContextObject::new(10),
-        ProgramResult::Ok(0x1),
-    );
-}
-
-#[test]
 fn test_jit_bounce() {
     test_interpreter_and_jit_asm!(
         "

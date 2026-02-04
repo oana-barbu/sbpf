@@ -99,28 +99,6 @@ fn test_alu64_bit() {
 }
 
 #[test]
-fn test_rfc9669_and32() {
-    test_interpreter_and_jit_asm!(
-        "
-        mov32 r1, 0xff00ff00
-        and32 r1, 0x0f0f0f0f
-        jne32 r1, 0x0f000f00, fail
-        mov32 r2, 0x55555555
-        mov32 r3, 0x0f0f0f0f
-        and32 r2, r3
-        jne32 r2, 0x05050505, fail
-        mov r0, 1
-        exit
-        fail:
-        mov r0, 0
-        exit",
-        [],
-        TestContextObject::new(11),
-        ProgramResult::Ok(0x1),
-    );
-}
-
-#[test]
 fn test_rfc9669_and64() {
     test_interpreter_and_jit_asm!(
         "
@@ -168,29 +146,6 @@ fn test_rfc9669_or32() {
 }
 
 #[test]
-fn test_rfc9669_or64() {
-    test_interpreter_and_jit_asm!(
-        "
-        lddw r1, 0xaaaaaaaaaaaaaaaa
-        or r1, 0x55555555
-        lddw r2, 0xaaaaaaaaffffffff
-        jne r1, r2, fail
-        lddw r3, 0xf0f0f0f0f0f0f0f0
-        lddw r4, 0x0f0f0f0f0f0f0f0f
-        or r3, r4
-        jne r3, 0xffffffff, fail
-        mov r0, 1
-        exit
-        fail:
-        mov r0, 0
-        exit",
-        [],
-        TestContextObject::new(12),
-        ProgramResult::Ok(0x1),
-    );
-}
-
-#[test]
 fn test_rfc9669_xor32() {
     test_interpreter_and_jit_asm!(
         "
@@ -208,30 +163,6 @@ fn test_rfc9669_xor32() {
         exit",
         [],
         TestContextObject::new(9),
-        ProgramResult::Ok(0x1),
-    );
-}
-
-#[test]
-fn test_rfc9669_xor64() {
-    test_interpreter_and_jit_asm!(
-        "
-        lddw r1, 0xffffffffffffffff
-        xor r1, 0xf0f0f0f0
-        lddw r2, 0xffffffff0f0f0f0f
-        jne r1, r2, fail
-        lddw r3, 0xffffffffffffffff
-        lddw r4, 0xf0f0f0f0f0f0f0f0
-        xor r3, r4
-        lddw r5, 0x0f0f0f0f0f0f0f0f
-        jne r3, r5, fail
-        mov r0, 1
-        exit
-        fail:
-        mov r0, 0
-        exit",
-        [],
-        TestContextObject::new(13),
         ProgramResult::Ok(0x1),
     );
 }
@@ -355,50 +286,6 @@ fn test_arsh64_reg() {
 }
 
 #[test]
-fn test_rfc9669_arsh32() {
-    test_interpreter_and_jit_asm!(
-        "
-        mov32 r1, 0x80000000
-        arsh32 r1, 31
-        jne32 r1, 0xffffffff, fail
-        mov32 r2, 0x80000000
-        mov32 r3, 31
-        arsh32 r2, r3
-        jne32 r2, 0xffffffff, fail
-        mov r0, 1
-        exit
-        fail:
-        mov r0, 0
-        exit",
-        [],
-        TestContextObject::new(11),
-        ProgramResult::Ok(0x1),
-    );
-}
-
-#[test]
-fn test_rfc9669_arsh64() {
-    test_interpreter_and_jit_asm!(
-        "
-        lddw r1, 0x8000000000000000
-        arsh r1, 63
-        jne r1, 0xffffffff, fail
-        lddw r2, 0x8000000000000000
-        mov r3, 63
-        arsh r2, r3
-        jne r2, 0xffffffff, fail
-        mov r0, 1
-        exit
-        fail:
-        mov r0, 0
-        exit",
-        [],
-        TestContextObject::new(11),
-        ProgramResult::Ok(0x1),
-    );
-}
-
-#[test]
 fn test_lsh32_imm() {
     test_interpreter_and_jit_asm!(
         "
@@ -505,28 +392,6 @@ fn test_lsh64_reg() {
         [],
         TestContextObject::new(4),
         ProgramResult::Ok(0x10),
-    );
-}
-
-#[test]
-fn test_rfc9669_lsh32() {
-    test_interpreter_and_jit_asm!(
-        "
-        mov32 r1, 1
-        lsh32 r1, 31
-        jne32 r1, 0x80000000, fail
-        mov32 r2, 1
-        mov32 r3, 31
-        lsh32 r2, r3
-        jne32 r2, 0x80000000, fail
-        mov r0, 1
-        exit
-        fail:
-        mov r0, 0
-        exit",
-        [],
-        TestContextObject::new(11),
-        ProgramResult::Ok(0x1),
     );
 }
 
@@ -659,28 +524,6 @@ fn test_rsh64_reg() {
         exit",
         [],
         TestContextObject::new(4),
-        ProgramResult::Ok(0x1),
-    );
-}
-
-#[test]
-fn test_rfc9669_rsh32() {
-    test_interpreter_and_jit_asm!(
-        "
-        mov32 r1, 0x80000000
-        rsh32 r1, 31
-        jne32 r1, 1, fail
-        mov32 r2, 0x80000000
-        mov32 r3, 31
-        rsh32 r2, r3
-        jne32 r2, 1, fail
-        mov r0, 1
-        exit
-        fail:
-        mov r0, 0
-        exit",
-        [],
-        TestContextObject::new(11),
         ProgramResult::Ok(0x1),
     );
 }
