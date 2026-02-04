@@ -4,3 +4,5 @@ mod common;
 mod negative_safety;
 #[path = "equivalence_tests/rfc9669_baseline/mod.rs"]
 mod rfc9669_baseline;
+#[path = "equivalence_tests/sbpf_specific/mod.rs"]
+mod sbpf_specific;

@@ -71,6 +71,57 @@ fn test_sub64_self() {
     );
 }
 
+#[test]
+fn test_add64_zero_to_negative() {
+    test_interpreter_and_jit_asm!(
+        "
+        mov r0, 0
+        add r0, -1
+        exit",
+        [],
+        TestContextObject::new(3),
+        ProgramResult::Ok(0xFFFFFFFFFFFFFFFF),
+    );
+}
+
+#[test]
+fn test_sub64_overflow() {
+    test_interpreter_and_jit_asm!(
+        "
+        lddw r0, 0x7FFFFFFFFFFFFFFF
+        sub r0, -1
+        exit",
+        [],
+        TestContextObject::new(3),
+        ProgramResult::Ok(0x8000000000000000),
+    );
+}
+
+#[test]
+fn test_sub64_underflow() {
+    test_interpreter_and_jit_asm!(
+        "
+        lddw r0, 0x8000000000000000
+        sub r0, 1
+        exit",
+        [],
+        TestContextObject::new(3),
+        ProgramResult::Ok(0x7FFFFFFFFFFFFFFF),
+    );
+}
+
+#[test]
+fn test_sub32_underflow() {
+    test_interpreter_and_jit_asm!(
+        "
+        mov32 r0, -2147483648
+        sub32 r0, 1
+        exit",
+        [],
+        TestContextObject::new(3),
+        ProgramResult::Ok(0x7FFFFFFF),
+    );
+}
 
 #[test]
 fn test_neg32_intmin() {
@@ -89,13 +140,25 @@ fn test_neg32_intmin() {
 fn test_neg64_intmin() {
     test_interpreter_and_jit_asm!(
         "
-        mov r0, 1
-        lsh r0, 63
+        lddw r0, 0x8000000000000000
         neg r0
         exit",
         [],
-        TestContextObject::new(4),
+        TestContextObject::new(3),
         ProgramResult::Ok(0x8000000000000000),
+    );
+}
+
+#[test]
+fn test_neg32_high_bits() {
+    test_interpreter_and_jit_asm!(
+        "
+        lddw r0, 0xFFFFFFFF80000000
+        neg32 r0
+        exit",
+        [],
+        TestContextObject::new(3),
+        ProgramResult::Ok(0x80000000),
     );
 }
 

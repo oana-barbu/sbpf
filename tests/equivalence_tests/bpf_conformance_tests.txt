@@ -160,7 +160,7 @@ neg - removed; similar to test_neg in execution.rs
 neg32-intmin-imm - renamed to test_neg32_intmin; uses mov32 instead of lddw
 neg32-intmin-reg - removed; covered by test_neg32_intmin
 neg64 - removed; similar to test_neg in execution.rs
-neg64-intmin-imm - renamed to test_neg64_intmin; computes INT_MIN via lsh instead of memory load
+neg64-intmin-imm - renamed to test_neg64_intmin; uses lddw to load INT_MIN
 neg64-intmin-reg - removed; covered by test_neg64_intmin
 prime - modified to use smaller input (5 instead of 67) for easier instruction count verification
 rfc9669_add32 - ignored; uses large immediate 0xffffffff, similar to test_mov32_imm and test_add32_sub32 in execution.rs
