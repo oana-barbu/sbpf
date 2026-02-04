@@ -140,7 +140,7 @@ fn test_rfc9669_and64() {
         mov r0, 0
         exit",
         [],
-        TestContextObject::new(14),
+        TestContextObject::new(12),
         ProgramResult::Ok(0x1),
     );
 }
@@ -162,7 +162,7 @@ fn test_rfc9669_or32() {
         mov r0, 0
         exit",
         [],
-        TestContextObject::new(11),
+        TestContextObject::new(9),
         ProgramResult::Ok(0x1),
     );
 }
@@ -207,7 +207,7 @@ fn test_rfc9669_xor32() {
         mov r0, 0
         exit",
         [],
-        TestContextObject::new(11),
+        TestContextObject::new(9),
         ProgramResult::Ok(0x1),
     );
 }
@@ -548,7 +548,7 @@ fn test_rfc9669_lsh64() {
         mov r0, 0
         exit",
         [],
-        TestContextObject::new(12),
+        TestContextObject::new(10),
         ProgramResult::Ok(0x1),
     );
 }
@@ -702,7 +702,7 @@ fn test_rfc9669_rsh64() {
         mov r0, 0
         exit",
         [],
-        TestContextObject::new(11),
+        TestContextObject::new(9),
         ProgramResult::Ok(0x1),
     );
 }

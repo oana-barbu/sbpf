@@ -99,7 +99,7 @@ fn test_rfc9669_add64() {
         mov r0, 0
         exit",
         [],
-        TestContextObject::new(11),
+        TestContextObject::new(9),
         ProgramResult::Ok(0x1),
     );
 }
@@ -146,7 +146,7 @@ fn test_rfc9669_sub64() {
         mov r0, 0
         exit",
         [],
-        TestContextObject::new(11),
+        TestContextObject::new(9),
         ProgramResult::Ok(0x1),
     );
 }

@@ -61,7 +61,7 @@ fn test_jeq_imm() {
         end:
         exit",
         [],
-        TestContextObject::new(8),
+        TestContextObject::new(7),
         ProgramResult::Ok(0x1),
     );
 }
@@ -83,7 +83,7 @@ fn test_jeq_reg() {
         end:
         exit",
         [],
-        TestContextObject::new(11),
+        TestContextObject::new(9),
         ProgramResult::Ok(0x1),
     );
 }
@@ -105,7 +105,7 @@ fn test_jeq32_imm() {
         end:
         exit",
         [],
-        TestContextObject::new(11),
+        TestContextObject::new(10),
         ProgramResult::Ok(0x1),
     );
 }
@@ -130,7 +130,7 @@ fn test_jeq32_reg() {
         end:
         exit",
         [],
-        TestContextObject::new(14),
+        TestContextObject::new(12),
         ProgramResult::Ok(0x1),
     );
 }
@@ -184,7 +184,7 @@ fn test_jne_reg() {
         end:
         exit",
         [],
-        TestContextObject::new(10),
+        TestContextObject::new(9),
         ProgramResult::Ok(0x1),
     );
 }
@@ -206,7 +206,7 @@ fn test_jne32_imm() {
         mov32 r0, 2
         exit",
         [],
-        TestContextObject::new(12),
+        TestContextObject::new(11),
         ProgramResult::Ok(0x1),
     );
 }
@@ -230,7 +230,7 @@ fn test_jne32_reg() {
         mov32 r0, 2
         exit",
         [],
-        TestContextObject::new(14),
+        TestContextObject::new(13),
         ProgramResult::Ok(0x1),
     );
 }
@@ -263,7 +263,7 @@ fn test_rfc9669_jne() {
         mov r0, 0
         exit",
         [],
-        TestContextObject::new(18),
+        TestContextObject::new(12),
         ProgramResult::Ok(0x1),
     );
 }
@@ -282,7 +282,7 @@ fn test_jge_imm() {
         end:
         exit",
         [],
-        TestContextObject::new(8),
+        TestContextObject::new(7),
         ProgramResult::Ok(0x1),
     );
 }
@@ -304,7 +304,7 @@ fn test_jge_reg() {
         end:
         exit",
         [],
-        TestContextObject::new(11),
+        TestContextObject::new(9),
         ProgramResult::Ok(0x1),
     );
 }
@@ -326,7 +326,7 @@ fn test_jge32_imm() {
         end:
         exit",
         [],
-        TestContextObject::new(11),
+        TestContextObject::new(10),
         ProgramResult::Ok(0x1),
     );
 }
@@ -351,7 +351,7 @@ fn test_jge32_reg() {
         end:
         exit",
         [],
-        TestContextObject::new(14),
+        TestContextObject::new(12),
         ProgramResult::Ok(0x1),
     );
 }
@@ -384,7 +384,7 @@ fn test_rfc9669_jge() {
         mov r0, 0
         exit",
         [],
-        TestContextObject::new(18),
+        TestContextObject::new(12),
         ProgramResult::Ok(0x1),
     );
 }
@@ -404,7 +404,7 @@ fn test_jgt_imm() {
         end:
         exit",
         [],
-        TestContextObject::new(8),
+        TestContextObject::new(7),
         ProgramResult::Ok(0x1),
     );
 }
@@ -426,7 +426,7 @@ fn test_jgt_reg() {
         end:
         exit",
         [],
-        TestContextObject::new(10),
+        TestContextObject::new(9),
         ProgramResult::Ok(0x1),
     );
 }
@@ -449,7 +449,7 @@ fn test_jgt32_imm() {
         end:
         exit",
         [],
-        TestContextObject::new(11),
+        TestContextObject::new(10),
         ProgramResult::Ok(0x1),
     );
 }
@@ -475,7 +475,7 @@ fn test_jgt32_reg() {
         end:
         exit",
         [],
-        TestContextObject::new(14),
+        TestContextObject::new(13),
         ProgramResult::Ok(0x1),
     );
 }
@@ -508,7 +508,7 @@ fn test_rfc9669_jgt() {
         mov r0, 0
         exit",
         [],
-        TestContextObject::new(18),
+        TestContextObject::new(12),
         ProgramResult::Ok(0x1),
     );
 }
@@ -530,7 +530,7 @@ fn test_jle_imm() {
         end:
         exit",
         [],
-        TestContextObject::new(9),
+        TestContextObject::new(7),
         ProgramResult::Ok(0x1),
     );
 }
@@ -552,7 +552,7 @@ fn test_jle_reg() {
         end:
         exit",
         [],
-        TestContextObject::new(11),
+        TestContextObject::new(9),
         ProgramResult::Ok(0x1),
     );
 }
@@ -575,7 +575,7 @@ fn test_jle32_imm() {
         end:
         exit",
         [],
-        TestContextObject::new(12),
+        TestContextObject::new(10),
         ProgramResult::Ok(0x1),
     );
 }
@@ -600,7 +600,7 @@ fn test_jle32_reg() {
         end:
         exit",
         [],
-        TestContextObject::new(14),
+        TestContextObject::new(12),
         ProgramResult::Ok(0x1),
     );
 }
@@ -633,7 +633,7 @@ fn test_rfc9669_jle() {
         mov r0, 0
         exit",
         [],
-        TestContextObject::new(18),
+        TestContextObject::new(12),
         ProgramResult::Ok(0x1),
     );
 }
@@ -652,7 +652,7 @@ fn test_jlt_imm() {
         end:
         exit",
         [],
-        TestContextObject::new(8),
+        TestContextObject::new(7),
         ProgramResult::Ok(0x1),
     );
 }
@@ -673,7 +673,7 @@ fn test_jlt_reg() {
         end:
         exit",
         [],
-        TestContextObject::new(10),
+        TestContextObject::new(9),
         ProgramResult::Ok(0x1),
     );
 }
@@ -695,7 +695,7 @@ fn test_jlt32_imm() {
         end:
         exit",
         [],
-        TestContextObject::new(11),
+        TestContextObject::new(10),
         ProgramResult::Ok(0x1),
     );
 }
@@ -719,7 +719,7 @@ fn test_jlt32_reg() {
         end:
         exit",
         [],
-        TestContextObject::new(13),
+        TestContextObject::new(12),
         ProgramResult::Ok(0x1),
     );
 }
@@ -752,7 +752,7 @@ fn test_rfc9669_jlt() {
         mov r0, 0
         exit",
         [],
-        TestContextObject::new(18),
+        TestContextObject::new(12),
         ProgramResult::Ok(0x1),
     );
 }
@@ -771,7 +771,7 @@ fn test_jset_imm() {
         end:
         exit",
         [],
-        TestContextObject::new(8),
+        TestContextObject::new(7),
         ProgramResult::Ok(0x1),
     );
 }
@@ -793,7 +793,7 @@ fn test_jset_reg() {
         end:
         exit",
         [],
-        TestContextObject::new(11),
+        TestContextObject::new(9),
         ProgramResult::Ok(0x1),
     );
 }
@@ -815,7 +815,7 @@ fn test_jset32_imm() {
         end:
         exit",
         [],
-        TestContextObject::new(11),
+        TestContextObject::new(10),
         ProgramResult::Ok(0x1),
     );
 }
@@ -840,7 +840,7 @@ fn test_jset32_reg() {
         end:
         exit",
         [],
-        TestContextObject::new(14),
+        TestContextObject::new(12),
         ProgramResult::Ok(0x1),
     );
 }

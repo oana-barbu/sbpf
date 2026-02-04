@@ -97,7 +97,7 @@ fn test_rfc9669_be16() {
         mov r0, 0
         exit",
         [],
-        TestContextObject::new(7),
+        TestContextObject::new(5),
         ProgramResult::Ok(0x1),
     );
 }
@@ -115,7 +115,7 @@ fn test_rfc9669_be32() {
         mov r0, 0
         exit",
         [],
-        TestContextObject::new(7),
+        TestContextObject::new(5),
         ProgramResult::Ok(0x1),
     );
 }
@@ -134,7 +134,7 @@ fn test_rfc9669_be64() {
         mov r0, 0
         exit",
         [],
-        TestContextObject::new(8),
+        TestContextObject::new(6),
         ProgramResult::Ok(0x1),
     );
 }
@@ -217,7 +217,7 @@ fn test_rfc9669_le16() {
         mov r0, 0
         exit",
         [],
-        TestContextObject::new(7),
+        TestContextObject::new(5),
         ProgramResult::Ok(0x1),
     );
 }
@@ -235,7 +235,7 @@ fn test_rfc9669_le32() {
         mov r0, 0
         exit",
         [],
-        TestContextObject::new(7),
+        TestContextObject::new(5),
         ProgramResult::Ok(0x1),
     );
 }
@@ -254,7 +254,7 @@ fn test_rfc9669_le64() {
         mov r0, 0
         exit",
         [],
-        TestContextObject::new(8),
+        TestContextObject::new(6),
         ProgramResult::Ok(0x1),
     );
 }

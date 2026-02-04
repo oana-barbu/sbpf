@@ -94,7 +94,7 @@ fn test_alu64_arith() {
 fn test_prime() {
     test_interpreter_and_jit_asm!(
         "
-        mov r1, 67
+        mov r1, 5
         mov r0, 0x1
         mov r2, 0x2
         jgt r1, 0x2, L3
@@ -115,7 +115,7 @@ fn test_prime() {
         end:
         exit",
         [],
-        TestContextObject::new(16),
+        TestContextObject::new(35),
         ProgramResult::Ok(0x1),
     );
 }

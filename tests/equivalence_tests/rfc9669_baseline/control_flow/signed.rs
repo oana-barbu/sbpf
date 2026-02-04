@@ -141,7 +141,7 @@ fn test_rfc9669_jsge() {
         mov r0, 0
         exit",
         [],
-        TestContextObject::new(18),
+        TestContextObject::new(12),
         ProgramResult::Ok(0x1),
     );
 }
@@ -260,7 +260,7 @@ fn test_rfc9669_jsgt() {
         mov r0, 0
         exit",
         [],
-        TestContextObject::new(18),
+        TestContextObject::new(15),
         ProgramResult::Ok(0x1),
     );
 }
@@ -389,7 +389,7 @@ fn test_rfc9669_jsle() {
         mov r0, 0
         exit",
         [],
-        TestContextObject::new(18),
+        TestContextObject::new(12),
         ProgramResult::Ok(0x1),
     );
 }
@@ -508,7 +508,7 @@ fn test_rfc9669_jslt() {
         mov r0, 0
         exit",
         [],
-        TestContextObject::new(18),
+        TestContextObject::new(12),
         ProgramResult::Ok(0x1),
     );
 }

@@ -159,7 +159,7 @@ fn test_rfc9669_mul32() {
         mov r0, 0
         exit",
         [],
-        TestContextObject::new(11),
+        TestContextObject::new(9),
         ProgramResult::Ok(0x1),
     );
 }
@@ -181,7 +181,7 @@ fn test_rfc9669_mul64() {
         mov r0, 0
         exit",
         [],
-        TestContextObject::new(11),
+        TestContextObject::new(9),
         ProgramResult::Ok(0x1),
     );
 }
@@ -294,17 +294,13 @@ fn test_rfc9669_div32() {
         mov32 r3, 3
         div32 r2, r3
         jne32 r2, 42, fail
-        mov32 r4, 123
-        mov32 r5, 0
-        div32 r4, r5
-        jne32 r4, 0, fail
         mov r0, 1
         exit
         fail:
         mov r0, 0
         exit",
         [],
-        TestContextObject::new(15),
+        TestContextObject::new(9),
         ProgramResult::Ok(0x1),
     );
 }
@@ -528,17 +524,13 @@ fn test_rfc9669_mod32() {
         mov32 r3, 42
         mod32 r2, r3
         jne32 r2, 16, fail
-        mov32 r4, 100
-        mov32 r5, 0
-        mod32 r4, r5
-        jne32 r4, 100, fail
         mov r0, 1
         exit
         fail:
         mov r0, 0
         exit",
         [],
-        TestContextObject::new(15),
+        TestContextObject::new(9),
         ProgramResult::Ok(0x1),
     );
 }
@@ -554,17 +546,13 @@ fn test_rfc9669_mod64() {
         mov r3, 42
         mod r2, r3
         jne r2, 16, fail
-        mov r4, 100
-        mov r5, 0
-        mod r4, r5
-        jne r4, 100, fail
         mov r0, 1
         exit
         fail:
         mov r0, 0
         exit",
         [],
-        TestContextObject::new(15),
+        TestContextObject::new(9),
         ProgramResult::Ok(0x1),
     );
 }

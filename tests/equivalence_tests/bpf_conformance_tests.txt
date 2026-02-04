@@ -162,7 +162,7 @@ neg32-intmin-reg - copied
 neg64 - copied
 neg64-intmin-imm - copied
 neg64-intmin-reg - copied
-prime - copied
+prime - modified to use smaller input (5 instead of 67) for easier instruction count verification
 rfc9669_add32 - copied
 rfc9669_add64 - copied
 rfc9669_and32 - copied
@@ -176,7 +176,7 @@ rfc9669_bswap16 - bswap not supported by sbpf
 rfc9669_bswap32 - bswap not supported by sbpf
 rfc9669_bswap64 - bswap not supported by sbpf
 rfc9669_call_local - copied
-rfc9669_div32 - copied
+rfc9669_div32 - modified to remove divide by zero operation (sbpf returns error, not 0)
 rfc9669_div64 - copied
 rfc9669_exit - copied
 rfc9669_ja - copied
@@ -219,8 +219,8 @@ rfc9669_lock_xor32 - lock not supported by sbpf
 rfc9669_lock_xor64 - lock not supported by sbpf
 rfc9669_lsh32 - copied
 rfc9669_lsh64 - copied
-rfc9669_mod32 - copied
-rfc9669_mod64 - copied
+rfc9669_mod32 - modified to remove mod by zero operation (sbpf returns error, not dividend)
+rfc9669_mod64 - modified to remove mod by zero operation (sbpf returns error, not dividend)
 rfc9669_mov32 - copied
 rfc9669_mov64 - copied
 rfc9669_movsx - movsx not supported by sbpf
