@@ -25,8 +25,8 @@ bswap16 - bswap not supported by sbpf
 bswap32 - bswap not supported by sbpf
 bswap64 - bswap not supported by sbpf
 call_local - modified syntax: `call local func1` -> `call func1`
-call_unwind_fail - copied
-callx - copied
+call_unwind_fail - ignored; syscall dispatch by numeric ID not supported in sbpf
+callx - ignored; indirect syscall dispatch by register not supported in sbpf
 div32-by-zero-reg - moved to negative_safety (sbpf returns error, not 0)
 div32-by-zero-reg-2 - renamed to test_div32_by_zero_reg_high_bits, moved to negative_safety
 div32-high-divisor - copied

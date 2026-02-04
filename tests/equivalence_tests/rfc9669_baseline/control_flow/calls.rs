@@ -63,35 +63,6 @@ fn test_call_local() {
 }
 
 #[test]
-fn test_call_unwind_fail() {
-    test_interpreter_and_jit_asm!(
-        "
-        mov r1, -1
-        call 5
-        mov r0, 2
-        exit",
-        [],
-        TestContextObject::new(4),
-        ProgramResult::Ok(0x2),
-    );
-}
-
-#[test]
-fn test_callx() {
-    test_interpreter_and_jit_asm!(
-        "
-        mov r1, -1
-        mov r2, 5
-        call r2
-        mov r0, 2
-        exit",
-        [],
-        TestContextObject::new(5),
-        ProgramResult::Ok(0x2),
-    );
-}
-
-#[test]
 fn test_rfc9669_call_local() {
     test_interpreter_and_jit_asm!(
         "
