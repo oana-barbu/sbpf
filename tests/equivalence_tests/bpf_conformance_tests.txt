@@ -1,0 +1,313 @@
+add - copied
+add64 - copied
+alu-arith - copied
+alu-bit - copied
+alu64-arith - copied
+alu64-bit - copied
+arsh32-imm - copied
+arsh32-imm-high - copied
+arsh32-imm-neg - copied
+arsh32-reg - copied
+arsh32-reg-high - copied
+arsh32-reg-neg - copied
+arsh64-imm - copied
+arsh64-imm-high - copied
+arsh64-imm-neg - copied
+arsh64-reg - copied
+arsh64-reg-high - copied
+arsh64-reg-neg - copied
+be16 - copied
+be16-high - copied
+be32 - copied
+be32-high - copied
+be64 - copied
+bswap16 - bswap not supported by sbpf
+bswap32 - bswap not supported by sbpf
+bswap64 - bswap not supported by sbpf
+call_local - copied
+call_unwind_fail - copied
+callx - copied
+div32-by-zero-reg - copied
+div32-by-zero-reg-2 - copied
+div32-high-divisor - copied
+div32-imm - copied
+div32-reg - copied
+div64-by-zero-reg - copied
+div64-imm - copied
+div64-negative-imm - copied
+div64-negative-reg - copied
+div64-reg - copied
+exit - copied
+exit-not-last - copied
+j-signed-imm - copied
+ja32 - ja32 not supported by sbpf
+jeq-imm - copied
+jeq-reg - copied
+jeq32-imm - copied
+jeq32-reg - copied
+jge-imm - copied
+jge-reg - copied
+jge32-imm - copied
+jge32-reg - copied
+jgt-imm - copied
+jgt-reg - copied
+jgt32-imm - copied
+jgt32-reg - copied
+jit-bounce - copied
+jle-imm - copied
+jle-reg - copied
+jle32-imm - copied
+jle32-reg - copied
+jlt-imm - copied
+jlt-reg - copied
+jlt32-imm - copied
+jlt32-reg - copied
+jne-reg - copied
+jne32-imm - copied
+jne32-reg - copied
+jset-imm - copied
+jset-reg - copied
+jset32-imm - copied
+jset32-reg - copied
+jsge-imm - copied
+jsge-reg - copied
+jsge32-imm - copied
+jsge32-reg - copied
+jsgt-imm - copied
+jsgt-reg - copied
+jsgt32-imm - copied
+jsgt32-reg - copied
+jsle-imm - copied
+jsle-reg - copied
+jsle32-imm - copied
+jsle32-reg - copied
+jslt-imm - copied
+jslt-reg - copied
+jslt32-imm - copied
+jslt32-reg - copied
+lddw - copied
+lddw2 - copied
+ldxb - copied
+ldxb-all - copied
+ldxdw - copied
+ldxh - copied
+ldxh-all - copied
+ldxh-all2 - copied
+ldxh-same-reg - copied
+ldxw - copied
+ldxw-all - copied
+le16 - copied
+le16-high - copied
+le32 - copied
+le32-high - copied
+le64 - copied
+lock_add - lock not supported by sbpf
+lock_add32 - lock not supported by sbpf
+lock_and - lock not supported by sbpf
+lock_and32 - lock not supported by sbpf
+lock_cmpxchg - lock not supported by sbpf
+lock_cmpxchg32 - lock not supported by sbpf
+lock_fetch_add - lock not supported by sbpf
+lock_fetch_add32 - lock not supported by sbpf
+lock_fetch_and - lock not supported by sbpf
+lock_fetch_and32 - lock not supported by sbpf
+lock_fetch_or - lock not supported by sbpf
+lock_fetch_or32 - lock not supported by sbpf
+lock_fetch_xor - lock not supported by sbpf
+lock_fetch_xor32 - lock not supported by sbpf
+lock_or - lock not supported by sbpf
+lock_or32 - lock not supported by sbpf
+lock_xchg - lock not supported by sbpf
+lock_xchg32 - lock not supported by sbpf
+lock_xor - lock not supported by sbpf
+lock_xor32 - lock not supported by sbpf
+lsh32-imm - copied
+lsh32-imm-high - copied
+lsh32-imm-neg - copied
+lsh32-reg - copied
+lsh32-reg-high - copied
+lsh32-reg-neg - copied
+lsh64-imm - copied
+lsh64-imm-high - copied
+lsh64-imm-neg - copied
+lsh64-reg - copied
+lsh64-reg-high - copied
+lsh64-reg-neg - copied
+mem-len - copied
+mod - copied
+mod-by-zero-reg - copied
+mod32 - copied
+mod64 - copied
+mod64-by-zero-reg - copied
+mov - copied
+mov64 - copied
+mov64-sign-extend - copied
+movsx1632-reg - movsx not supported by sbpf
+movsx1664-reg - movsx not supported by sbpf
+movsx3264-reg - movsx not supported by sbpf
+movsx832-reg - movsx not supported by sbpf
+movsx864-reg - movsx not supported by sbpf
+mul32-imm - copied
+mul32-intmin-by-negone-imm - copied
+mul32-intmin-by-negone-reg - copied
+mul32-reg - copied
+mul32-reg-overflow - copied
+mul64-imm - copied
+mul64-intmin-by-negone-imm - copied
+mul64-intmin-by-negone-reg - copied
+mul64-reg - copied
+neg - copied
+neg32-intmin-imm - copied
+neg32-intmin-reg - copied
+neg64 - copied
+neg64-intmin-imm - copied
+neg64-intmin-reg - copied
+prime - copied
+rfc9669_add32 - copied
+rfc9669_add64 - copied
+rfc9669_and32 - copied
+rfc9669_and64 - copied
+rfc9669_arsh32 - copied
+rfc9669_arsh64 - copied
+rfc9669_be16 - copied
+rfc9669_be32 - copied
+rfc9669_be64 - copied
+rfc9669_bswap16 - bswap not supported by sbpf
+rfc9669_bswap32 - bswap not supported by sbpf
+rfc9669_bswap64 - bswap not supported by sbpf
+rfc9669_call_local - copied
+rfc9669_div32 - copied
+rfc9669_div64 - copied
+rfc9669_exit - copied
+rfc9669_ja - copied
+rfc9669_ja32 - ja32 not supported by sbpf
+rfc9669_jeq - copied
+rfc9669_jge - copied
+rfc9669_jgt - copied
+rfc9669_jle - copied
+rfc9669_jlt - copied
+rfc9669_jne - copied
+rfc9669_jset - copied
+rfc9669_jsge - copied
+rfc9669_jsgt - copied
+rfc9669_jsle - copied
+rfc9669_jslt - copied
+rfc9669_lddw - copied
+rfc9669_ldxb - copied
+rfc9669_ldxdw - copied
+rfc9669_ldxh - copied
+rfc9669_ldxsb - ldxs not supported by sbpf
+rfc9669_ldxsh - ldxs not supported by sbpf
+rfc9669_ldxsw - ldxs not supported by sbpf
+rfc9669_ldxw - copied
+rfc9669_le16 - copied
+rfc9669_le32 - copied
+rfc9669_le64 - copied
+rfc9669_lock_add32 - lock not supported by sbpf
+rfc9669_lock_add64 - lock not supported by sbpf
+rfc9669_lock_and32 - lock not supported by sbpf
+rfc9669_lock_and64 - lock not supported by sbpf
+rfc9669_lock_cmpxchg32 - lock not supported by sbpf
+rfc9669_lock_cmpxchg64 - lock not supported by sbpf
+rfc9669_lock_fetch_add32 - lock not supported by sbpf
+rfc9669_lock_fetch_add64 - lock not supported by sbpf
+rfc9669_lock_or32 - lock not supported by sbpf
+rfc9669_lock_or64 - lock not supported by sbpf
+rfc9669_lock_xchg32 - lock not supported by sbpf
+rfc9669_lock_xchg64 - lock not supported by sbpf
+rfc9669_lock_xor32 - lock not supported by sbpf
+rfc9669_lock_xor64 - lock not supported by sbpf
+rfc9669_lsh32 - copied
+rfc9669_lsh64 - copied
+rfc9669_mod32 - copied
+rfc9669_mod64 - copied
+rfc9669_mov32 - copied
+rfc9669_mov64 - copied
+rfc9669_movsx - movsx not supported by sbpf
+rfc9669_mul32 - copied
+rfc9669_mul64 - copied
+rfc9669_neg32 - copied
+rfc9669_neg64 - copied
+rfc9669_or32 - copied
+rfc9669_or64 - copied
+rfc9669_rsh32 - copied
+rfc9669_rsh64 - copied
+rfc9669_sdiv32 - copied
+rfc9669_sdiv64 - copied
+rfc9669_smod32 - copied as test_rfc9669_srem32
+rfc9669_smod64 - copied as test_rfc9669_srem64
+rfc9669_stb - copied
+rfc9669_stdw - copied
+rfc9669_sth - copied
+rfc9669_stw - copied
+rfc9669_stxb - copied
+rfc9669_stxdw - copied
+rfc9669_stxh - copied
+rfc9669_stxw - copied
+rfc9669_sub32 - copied
+rfc9669_sub64 - copied
+rfc9669_swap16 - swap not supported by sbpf
+rfc9669_swap32 - swap not supported by sbpf
+rfc9669_swap64 - swap not supported by sbpf
+rfc9669_xor32 - copied
+rfc9669_xor64 - copied
+rsh32-imm - copied
+rsh32-imm-high - copied
+rsh32-imm-neg - copied
+rsh32-reg - copied
+rsh32-reg-high - copied
+rsh32-reg-neg - copied
+rsh64-imm - copied
+rsh64-imm-high - copied
+rsh64-imm-neg - copied
+rsh64-reg - copied
+rsh64-reg-high - copied
+rsh64-reg-neg - copied
+sdiv32-by-zero-imm - copied
+sdiv32-by-zero-reg - copied
+sdiv32-imm - copied
+sdiv32-intmin-by-negone-imm - copied
+sdiv32-intmin-by-negone-reg - copied
+sdiv32-reg - copied
+sdiv64-by-zero-imm - copied
+sdiv64-by-zero-reg - copied
+sdiv64-imm - copied
+sdiv64-intmin-by-negone-imm - copied
+sdiv64-intmin-by-negone-reg - copied
+sdiv64-reg - copied
+smod32-intmin-by-negone-imm - copied as test_srem32_intmin_by_negone_imm
+smod32-intmin-by-negone-reg - copied as test_srem32_intmin_by_negone_reg
+smod32-neg-by-neg-imm - copied as test_srem32_neg_by_neg_imm
+smod32-neg-by-neg-reg - copied as test_srem32_neg_by_neg_reg
+smod32-neg-by-pos-imm - copied as test_srem32_neg_by_pos_imm
+smod32-neg-by-pos-reg - copied as test_srem32_neg_by_pos_reg
+smod32-neg-by-zero-imm - copied as test_srem32_neg_by_zero_imm
+smod32-neg-by-zero-reg - copied as test_srem32_neg_by_zero_reg
+smod32-pos-by-neg-imm - copied as test_srem32_pos_by_neg_imm
+smod32-pos-by-neg-reg - copied as test_srem32_pos_by_neg_reg
+smod64-intmin-by-negone-imm - copied as test_srem64_intmin_by_negone_imm
+smod64-intmin-by-negone-reg - copied as test_srem64_intmin_by_negone_reg
+smod64-neg-by-neg-imm - copied as test_srem64_neg_by_neg_imm
+smod64-neg-by-neg-reg - copied as test_srem64_neg_by_neg_reg
+smod64-neg-by-pos-imm - copied as test_srem64_neg_by_pos_imm
+smod64-neg-by-pos-reg - copied as test_srem64_neg_by_pos_reg
+smod64-neg-by-zero-imm - copied as test_srem64_neg_by_zero_imm
+smod64-neg-by-zero-reg - copied as test_srem64_neg_by_zero_reg
+smod64-pos-by-neg-imm - copied as test_srem64_pos_by_neg_imm
+smod64-pos-by-neg-reg - copied as test_srem64_pos_by_neg_reg
+stack - copied
+stb - copied
+stdw - copied
+sth - copied
+stw - copied
+stxb - copied
+stxb-all - copied
+stxb-all2 - copied
+stxb-chain - copied
+stxdw - copied
+stxh - copied
+stxw - copied
+subnet - copied
+swap16 - swap not supported by sbpf
+swap32 - swap not supported by sbpf
+swap64 - swap not supported by sbpf
