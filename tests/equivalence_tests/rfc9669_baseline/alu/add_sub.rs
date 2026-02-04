@@ -159,7 +159,7 @@ fn test_neg() {
         neg32 r0
         exit",
         [],
-        TestContextObject::new(4),
+        TestContextObject::new(3),
         ProgramResult::Ok(0xfffffffe),
     );
 }
@@ -172,7 +172,7 @@ fn test_neg32_intmin_imm() {
         neg32 r0
         exit",
         [],
-        TestContextObject::new(4),
+        TestContextObject::new(3),
         ProgramResult::Ok(0x80000000),
     );
 }
@@ -262,7 +262,7 @@ fn test_rfc9669_neg64() {
         mov r0, 0
         exit",
         [],
-        TestContextObject::new(9),
+        TestContextObject::new(6),
         ProgramResult::Ok(0x1),
     );
 }

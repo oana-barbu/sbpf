@@ -26,7 +26,7 @@ fn test_lddw() {
         lddw r0, 0x1122334455667788
         exit",
         [],
-        TestContextObject::new(3),
+        TestContextObject::new(2),
         ProgramResult::Ok(0x1122334455667788),
     );
 }
@@ -38,7 +38,7 @@ fn test_lddw2() {
         lddw r0, 2147483648
         exit",
         [],
-        TestContextObject::new(3),
+        TestContextObject::new(2),
         ProgramResult::Ok(0x0000000080000000),
     );
 }
@@ -50,7 +50,7 @@ fn test_rfc9669_lddw() {
         lddw r0, 0x1122334455667788
         exit",
         [],
-        TestContextObject::new(3),
+        TestContextObject::new(2),
         ProgramResult::Ok(0x1122334455667788),
     );
 }

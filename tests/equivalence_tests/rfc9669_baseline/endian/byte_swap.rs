@@ -134,7 +134,7 @@ fn test_rfc9669_be64() {
         mov r0, 0
         exit",
         [],
-        TestContextObject::new(10),
+        TestContextObject::new(8),
         ProgramResult::Ok(0x1),
     );
 }
@@ -254,7 +254,7 @@ fn test_rfc9669_le64() {
         mov r0, 0
         exit",
         [],
-        TestContextObject::new(10),
+        TestContextObject::new(8),
         ProgramResult::Ok(0x1),
     );
 }

@@ -42,7 +42,7 @@ fn test_j_signed_imm() {
         mov32 r0, 1
         exit",
         [],
-        TestContextObject::new(23),
+        TestContextObject::new(18),
         ProgramResult::Ok(0x1),
     );
 }

@@ -310,7 +310,7 @@ fn test_rfc9669_stxdw() {
         ldxdw r0, [r10-8]
         exit",
         [],
-        TestContextObject::new(5),
+        TestContextObject::new(4),
         ProgramResult::Ok(0x1122334455667788),
     );
 }

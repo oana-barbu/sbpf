@@ -195,7 +195,7 @@ fn test_div32_high_divisor() {
         div32 r0, r1
         exit",
         [],
-        TestContextObject::new(5),
+        TestContextObject::new(4),
         ProgramResult::Ok(0x3),
     );
 }
@@ -208,7 +208,7 @@ fn test_div32_imm() {
         div32 r0, 4
         exit",
         [],
-        TestContextObject::new(4),
+        TestContextObject::new(3),
         ProgramResult::Ok(0x3),
     );
 }
@@ -222,7 +222,7 @@ fn test_div32_reg() {
         div32 r0, r1
         exit",
         [],
-        TestContextObject::new(5),
+        TestContextObject::new(4),
         ProgramResult::Ok(0x3),
     );
 }
@@ -249,7 +249,7 @@ fn test_div64_negative_imm() {
         div r0, -10
         exit",
         [],
-        TestContextObject::new(4),
+        TestContextObject::new(3),
         ProgramResult::Ok(0x1),
     );
 }
@@ -263,7 +263,7 @@ fn test_div64_negative_reg() {
         div r0, r1
         exit",
         [],
-        TestContextObject::new(5),
+        TestContextObject::new(4),
         ProgramResult::Ok(0x10000000A),
     );
 }
@@ -330,7 +330,7 @@ fn test_rfc9669_div64() {
         mov r0, 0
         exit",
         [],
-        TestContextObject::new(17),
+        TestContextObject::new(15),
         ProgramResult::Ok(0x1),
     );
 }
@@ -492,7 +492,7 @@ fn test_mod32() {
         mod32 r0, 3
         exit",
         [],
-        TestContextObject::new(4),
+        TestContextObject::new(3),
         ProgramResult::Ok(0x0),
     );
 }

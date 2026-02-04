@@ -32,7 +32,7 @@ fn test_mov() {
         mov32 r0, 1
         exit",
         [],
-        TestContextObject::new(9),
+        TestContextObject::new(8),
         ProgramResult::Ok(0x1),
     );
 }
