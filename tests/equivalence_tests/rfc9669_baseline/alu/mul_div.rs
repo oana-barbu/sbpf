@@ -186,34 +186,6 @@ fn test_rfc9669_mul64() {
 }
 
 #[test]
-fn test_div32_by_zero_reg_2() {
-    test_interpreter_and_jit_asm!(
-        "
-        mov32 r0, 1
-        lddw r1, 0x100000000
-        div32 r0, r1
-        exit",
-        [],
-        TestContextObject::new(5),
-        ProgramResult::Ok(0x0),
-    );
-}
-
-#[test]
-fn test_div32_by_zero_reg() {
-    test_interpreter_and_jit_asm!(
-        "
-        mov32 r0, 1
-        mov32 r1, 0
-        div32 r0, r1
-        exit",
-        [],
-        TestContextObject::new(4),
-        ProgramResult::Ok(0x0),
-    );
-}
-
-#[test]
 fn test_div32_high_divisor() {
     test_interpreter_and_jit_asm!(
         "
@@ -251,20 +223,6 @@ fn test_div32_reg() {
         [],
         TestContextObject::new(5),
         ProgramResult::Ok(0x3),
-    );
-}
-
-#[test]
-fn test_div64_by_zero_reg() {
-    test_interpreter_and_jit_asm!(
-        "
-        mov32 r0, 1
-        mov32 r1, 0
-        div r0, r1
-        exit",
-        [],
-        TestContextObject::new(4),
-        ProgramResult::Ok(0x0),
     );
 }
 
@@ -583,20 +541,6 @@ fn test_rfc9669_sdiv64() {
 }
 
 #[test]
-fn test_mod_by_zero_reg() {
-    test_interpreter_and_jit_asm!(
-        "
-        mov32 r0, 1
-        mov32 r1, 0
-        mod32 r0, r1
-        exit",
-        [],
-        TestContextObject::new(4),
-        ProgramResult::Ok(0x1),
-    );
-}
-
-#[test]
 fn test_mod() {
     test_interpreter_and_jit_asm!(
         "
@@ -622,20 +566,6 @@ fn test_mod32() {
         [],
         TestContextObject::new(4),
         ProgramResult::Ok(0x0),
-    );
-}
-
-#[test]
-fn test_mod64_by_zero_reg() {
-    test_interpreter_and_jit_asm!(
-        "
-        mov32 r0, 1
-        mov32 r1, 0
-        mod r0, r1
-        exit",
-        [],
-        TestContextObject::new(4),
-        ProgramResult::Ok(0x1),
     );
 }
 

@@ -27,12 +27,12 @@ bswap64 - bswap not supported by sbpf
 call_local - copied
 call_unwind_fail - copied
 callx - copied
-div32-by-zero-reg - copied
-div32-by-zero-reg-2 - copied
+div32-by-zero-reg - moved to negative_safety (sbpf returns error, not 0)
+div32-by-zero-reg-2 - renamed to test_div32_by_zero_reg_high_bits, moved to negative_safety
 div32-high-divisor - copied
 div32-imm - copied
 div32-reg - copied
-div64-by-zero-reg - copied
+div64-by-zero-reg - moved to negative_safety (sbpf returns error, not 0)
 div64-imm - copied
 div64-negative-imm - copied
 div64-negative-reg - copied
@@ -135,10 +135,10 @@ lsh64-reg-high - copied
 lsh64-reg-neg - copied
 mem-len - copied
 mod - copied
-mod-by-zero-reg - copied
+mod-by-zero-reg - renamed to test_mod32_by_zero_reg, moved to negative_safety
 mod32 - copied
 mod64 - copied
-mod64-by-zero-reg - copied
+mod64-by-zero-reg - moved to negative_safety (sbpf returns error, not dividend)
 mov - copied
 mov64 - copied
 mov64-sign-extend - copied
